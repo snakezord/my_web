@@ -2,15 +2,17 @@ import {useEffect, useRef} from 'react';
 import {useLoader, Canvas} from "@react-three/fiber";
 import {Environment, OrbitControls, useAnimations} from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {useColorMode} from "@chakra-ui/react";
 
 const Scene = () => {
+	const {colorMode} = useColorMode();
 	return (
-		<Canvas shadows fallback={null}>
+		<Canvas>
 			<ambientLight intensity={0.5}/>
-			<spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-mapSize={[512, 512]} castShadow/>
-			<Environment preset="city"/>
+			<spotLight position={[0, 10, 0]} angle={0.15} penumbra={1} shadow-mapSize={[512, 512]} castShadow/>
+			<Environment preset={colorMode === 'light' ? 'sunset' : 'night'}/>
 			<Model/>
-			<OrbitControls target={[0, 0, 0]}/>
+			<OrbitControls enableZoom={false}/>
 		</Canvas>
 	);
 };
@@ -22,12 +24,13 @@ const Model = () => {
 	const {actions} = useAnimations(model.animations, mesh);
 
 	useEffect(() => {
+		console.log('load')
 		actions['Take 01']?.setDuration(5).play()
 	}, [actions]);
 
 	return (
-		<mesh ref={mesh} position={[0, -3.2, 0]} scale={1.05}>
-			<primitive object={model.scene}/>
+		<mesh ref={mesh} position={[-.5, -2.7, .5]} scale={1.04}>
+			<primitive object={model.scene} dispose={null}/>
 		</mesh>
 	);
 };
