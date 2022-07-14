@@ -16,13 +16,15 @@
     "@react-three/drei": "^9.16.0",
     "@react-three/fiber": "^8.0.27",
     "framer-motion": "^6",
+    "hamburger-react": "^2.5.0",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-awesome-slider": "^4.1.0",
     "react-country-flag": "^3.0.2",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
-    "three": "^0.141.0"
+    "three": "^0.141.0",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/node": "18.0.0",

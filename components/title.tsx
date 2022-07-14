@@ -1,15 +1,22 @@
 import {FC} from "react";
 import {Box, Flex, Text} from "@chakra-ui/react";
 
-export const Title: FC<{ title: string }> = ({title}) => {
+export const Title: FC<{ title: string, fontSize?: string, fontWeight?: string, h?: string }> = (
+	{
+		title,
+		fontSize = 'larger',
+		fontWeight = 'bold',
+		h = '4px'
+	}
+) => {
 	return (
 		<Flex direction={'column'} alignItems={'start'}>
-			<Text fontSize={'larger'} fontWeight={'bold'}>
+			<Text fontSize={fontSize} fontWeight={fontWeight}>
 				<Flex as={'span'} direction={'column'}>
 					{title}
 					<Box
 						bg={'primary'}
-						h={'4px'}
+						h={h}
 						as={'span'}
 					/>
 				</Flex>

@@ -43,8 +43,8 @@ export const SocialLink: FC<SocialLinkProps> = (
 	return (
 		<Link href={href} target={'_blank'} rel="noreferrer">
 			<Tooltip label={name} bg={'secondary'} color={'black'}>
-				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{boxShadow: 'md'}}>
-					<Icon size={'100%'} fill={'#000000B3'}/>
+				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{color: 'secondary'}}>
+					<Icon size={'100%'}/>
 				</Box>
 			</Tooltip>
 		</Link>

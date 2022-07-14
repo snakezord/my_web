@@ -1,28 +1,28 @@
 import {Box, GridItem, SimpleGrid} from "@chakra-ui/react";
 import ContentLayout from "../components/layout/contentLayout";
 
-const MY_POSTS = {}
-
-const Post = () => {
-	return (
-		<Box>
-
-		</Box>
-	)
-}
+// const MY_POSTS = {}
+//
+// const Post = () => {
+// 	return (
+// 		<Box>
+//
+// 		</Box>
+// 	)
+// }
 
 const Posts = () => {
 	return (
 		<ContentLayout>
 			<SimpleGrid columns={3} spacing={2}>
 				<GridItem border={'1px solid'}>
-					post1
+					Posts
 				</GridItem>
 				<GridItem border={'1px solid'}>
-					post1
+					are
 				</GridItem>
 				<GridItem border={'1px solid'}>
-					post1
+					incoming
 				</GridItem>
 			</SimpleGrid>
 		</ContentLayout>

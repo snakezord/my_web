@@ -1,16 +1,16 @@
-import {useEffect, useRef} from 'react';
-import {useLoader, Canvas} from "@react-three/fiber";
-import {Environment, OrbitControls, useAnimations} from "@react-three/drei";
+import {useRef} from 'react';
+import {useLoader, Canvas, useFrame} from "@react-three/fiber";
+import {OrbitControls, useAnimations, Environment, Html} from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {useColorMode} from "@chakra-ui/react";
+import {useColorMode, useMediaQuery} from "@chakra-ui/react";
+import Typewriter, {TypewriterClass} from 'typewriter-effect';
 
 const Scene = () => {
 	const {colorMode} = useColorMode();
 	return (
 		<Canvas>
-			<ambientLight intensity={0.5}/>
-			<spotLight position={[0, 10, 0]} angle={0.15} penumbra={1} shadow-mapSize={[512, 512]} castShadow/>
-			<Environment preset={colorMode === 'light' ? 'sunset' : 'night'}/>
+			<ambientLight intensity={colorMode === 'light' ? .5 : 0}/>
+			<Environment preset={colorMode === 'light' ? 'lobby' : 'night'}/>
 			<Model/>
 			<OrbitControls enableZoom={false}/>
 		</Canvas>
@@ -19,17 +19,32 @@ const Scene = () => {
 
 const Model = () => {
 	const mesh = useRef<any>(null);
-	const model = useLoader(GLTFLoader, "./rhetorician/scene.gltf");
+	const model = useLoader(GLTFLoader, "./scene.glb");
 	const {actions} = useAnimations(model.animations, mesh);
 
-	useEffect(() => {
+	const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
+
+	useFrame(() => {
 		actions['Take 01']?.setDuration(5).play()
-	}, [actions]);
+	});
 
 	return (
-		<mesh ref={mesh} position={[-.5, -2.7, .5]} scale={1.04}>
-			<primitive object={model.scene} dispose={null}/>
-		</mesh>
+		<group position={[0, 0, 0]} dispose={null}>
+			<mesh ref={mesh} position={[0, -3, 0]}>
+				<primitive object={model.scene}/>
+			</mesh>
+			<Html center position={[-1.1, isLargerThan1280 ? 1 : -1, 0]} id={undefined}>
+				<Typewriter
+					onInit={(typewriter: TypewriterClass) => {
+						typewriter
+							.typeString('Welcome!')
+							.pauseFor(2500)
+							.pause()
+							.start();
+					}}
+				/>
+			</Html>
+		</group>
 	);
 };
 

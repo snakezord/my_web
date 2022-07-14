@@ -14,7 +14,7 @@ const light = {
 		100: '#F0ECE2',
 		200: '#DFD3C3',
 		300: '#C7B198',
-		400: '#596E79',
+		400: '#022C43',
 	},
 };
 
@@ -24,6 +24,10 @@ const config: ThemeConfig = {
 }
 
 const theme = extendTheme({
+	fonts: {
+		heading: `'Roboto', sans-serif`,
+		body: `'Roboto', sans-serif`,
+	},
 	config,
 	colors: {
 		light,

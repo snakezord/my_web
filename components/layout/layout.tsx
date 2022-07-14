@@ -1,9 +1,10 @@
-import {Box, Container, Grid, GridItem, Spinner, useColorMode} from "@chakra-ui/react";
+import {Box, Container, Grid, GridItem, Spacer, Spinner, useColorMode} from "@chakra-ui/react";
 import {FC, PropsWithChildren} from "react";
 import dynamic from "next/dynamic";
 import {Header} from "../header";
 import Seo from "../seo";
 import {useMediaQuery} from '@chakra-ui/react'
+import Footer from "../footer";
 
 const Scene = dynamic(() => import('../scene'), {
 	ssr: false,
@@ -29,7 +30,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 		? {
 			colStart: 9,
 			colEnd: 12,
-			h: '600px'
+			h: '70vh'
 		}
 		: {
 			colStart: 2,
@@ -39,11 +40,11 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 		};
 
 	return (
-		<Box w='100%' minH={'100vh'} h='100%' bg={`${colorMode}.brand.100`} pb={10}>
+		<Box w='100%' minH='100vh' h='100%' bg={`${colorMode}.brand.100`}>
 			<Seo/>
 			<Header/>
 			<Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'}>
-				<GridItem {...posPropsGrid1} >
+				<GridItem {...posPropsGrid1} pt={'5%'}>
 					<Container maxW={'container.md'}>
 						{children}
 					</Container>
@@ -51,10 +52,14 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 				<GridItem
 					{...posPropsGrid2} w='100%'
 					display={'flex'} alignItems={'center'} justifyContent={'center'}
-					css={{cursor: 'grab'}}>
+					css={{cursor: 'grab'}}
+					zIndex={0}
+				>
 					<Scene/>
 				</GridItem>
 			</Grid>
+			<Spacer/>
+			<Footer/>
 		</Box>
 	)
 }

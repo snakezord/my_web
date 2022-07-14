@@ -18,6 +18,7 @@ const ThemeButton = () => {
 					aria-label='theme mode trigger'
 					onClick={toggleColorMode}
 					bg={`${colorMode}.brand.400`}
+					color={'white'}
 				>
 					{colorMode === 'light' ? (
 						<MdDarkMode size={24}/>

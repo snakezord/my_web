@@ -1,13 +1,14 @@
 import type {NextPage} from 'next';
-import {VStack} from '@chakra-ui/react';
+import {useMediaQuery, VStack} from '@chakra-ui/react';
 import Me from '../components/me';
 import Whoamai from "../components/whoamai";
 import {Social} from "../components/social";
 import ContentLayout from "../components/layout/contentLayout";
 
 const Home: NextPage = () => {
+	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
-		<VStack spacing={10} align={'flex-start'}>
+		<VStack spacing={isLargerThan600 ? 10 : 3} align={'flex-start'}>
 			<ContentLayout>
 				<Me/>
 			</ContentLayout>

@@ -50,7 +50,7 @@ const Works = () => {
 	const {colorMode} = useColorMode();
 	return (
 		<VStack spacing={2} align={'flex-start'}>
-			<Heading>Latest works</Heading>
+			<Heading>Latest work</Heading>
 			<SimpleGrid columns={[1, 2]} spacing={10}>
 				{
 					WORK.map((work, i) => (

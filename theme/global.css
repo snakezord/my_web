@@ -1,0 +1,39 @@
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #F9248F;
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #F9248F;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.hover-underline-animation.active:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.Typewriter__wrapper {
+    background: rgba(249, 36, 143, 0.3);
+    font-size: x-large;
+}
+
+.Typewriter__cursor {
+    color: #F9248F;
+    font-size: xx-large;
+    font-weight: bold;
+}
