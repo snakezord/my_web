@@ -1,29 +1,32 @@
 import NextLink, {LinkProps as NextLinkProps} from 'next/link';
 import {
 	HStack,
-	IconButton,
 	Link,
 	Text,
 	Spacer,
-	Box,
 	Container,
 } from '@chakra-ui/react';
-import {useColorMode} from '@chakra-ui/react';
 import {AiFillGithub} from 'react-icons/ai';
-import {MdDarkMode} from 'react-icons/md';
-import {MdLightMode} from 'react-icons/md';
-import {AnimatePresence, motion} from 'framer-motion';
 import {FC, ReactNode} from "react";
+import ThemeButton from "./themeButton";
+import {motion} from 'framer-motion';
 
 interface LinkI extends NextLinkProps {
 	children: ReactNode;
+	target?: "_self" | "_blank" | "_parent" | "_top" | string;
 	removeDecoration?: boolean;
 }
 
-export const LinkItem: FC<LinkI> = ({children, removeDecoration = false, ...nextProps}) => {
+const LinkItem: FC<LinkI> = ({children, removeDecoration = false, target = '_self', ...nextProps}) => {
 	return (
-		<NextLink {...nextProps}>
-			<Link style={removeDecoration ? {textDecoration: 'none'} : {}} textUnderlineOffset='5px'>
+		<NextLink {...nextProps} passHref={true} scroll={false}>
+			<Link
+				style={{textDecoration: 'none'}}
+				textUnderlineOffset='5px'
+				className={'hover-underline-animation'}
+				target={target}
+				rel="noreferrer"
+			>
 				{children}
 			</Link>
 		</NextLink>
@@ -31,26 +34,31 @@ export const LinkItem: FC<LinkI> = ({children, removeDecoration = false, ...next
 };
 
 export const Header = () => {
-	const {toggleColorMode, colorMode} = useColorMode();
 	return (
-		<Container maxW={'container.lg'}>
-			<HStack spacing={7}>
-				<LinkItem
-					href={'/'}
-					removeDecoration
+		<Container maxW={'container.lg'} p={4}>
+			<HStack spacing={3}>
+				<motion.div
+					whileHover={{
+						scale: 1.03,
+						transition: {duration: .1},
+					}}
 				>
-					<HStack spacing={1}>
-						<motion.div whileHover='hover'>
-							<Text fontSize='lg' fontWeight='bold'>
-								Roman Zhydyk
-							</Text>
-						</motion.div>
-					</HStack>
-				</LinkItem>
+					<LinkItem
+						href={'/'}
+						removeDecoration
+					>
+						<Text fontSize='lg' fontWeight='bold'>
+							Roman Zhydyk
+						</Text>
+					</LinkItem>
+				</motion.div>
 				<HStack spacing={5}>
-					<LinkItem href={'/work'}>Works</LinkItem>
-					<LinkItem href={''}>Posts</LinkItem>
-					<LinkItem href={''}>
+					<LinkItem href={'/works'}>Works</LinkItem>
+					<LinkItem href={'/posts'}>Posts</LinkItem>
+					<LinkItem
+						href={'https://github.com/snakezord/my_web'}
+						target={'_blank'}
+					>
 						<HStack spacing={0.5}>
 							<AiFillGithub/>
 							<Text>Source</Text>
@@ -58,30 +66,7 @@ export const Header = () => {
 					</LinkItem>
 				</HStack>
 				<Spacer/>
-				<AnimatePresence exitBeforeEnter initial={false}>
-					<motion.div
-						style={{display: 'inline-block'}}
-						key={colorMode}
-						initial={{y: -20, opacity: 0}}
-						animate={{y: 0, opacity: 1}}
-						exit={{y: 20, opacity: 0}}
-						transition={{duration: 0.2}}
-					>
-						<Box p={2}>
-							<IconButton
-								aria-label='theme mode trigger'
-								onClick={toggleColorMode}
-								bg={`${colorMode}.brand.400`}
-							>
-								{colorMode === 'light' ? (
-									<MdDarkMode size={24}/>
-								) : (
-									<MdLightMode size={24}/>
-								)}
-							</IconButton>
-						</Box>
-					</motion.div>
-				</AnimatePresence>
+				<ThemeButton/>
 			</HStack>
 		</Container>
 	);

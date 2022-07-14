@@ -4,7 +4,7 @@ import {Box, Flex, Text} from "@chakra-ui/react";
 export const Title: FC<{ title: string }> = ({title}) => {
 	return (
 		<Flex direction={'column'} alignItems={'start'}>
-			<Text fontSize={'lg'} fontWeight={'bold'}>
+			<Text fontSize={'larger'} fontWeight={'bold'}>
 				<Flex as={'span'} direction={'column'}>
 					{title}
 					<Box

@@ -1,11 +1,12 @@
-import {Button, Flex, HStack, Text} from "@chakra-ui/react";
+import {Button, Flex, Text} from "@chakra-ui/react";
 import {Dot} from "./me";
 import {MdKeyboardArrowRight} from 'react-icons/md';
 import {Title} from "./title";
 import ReactCountryFlag from "react-country-flag"
+import NextLink from "next/link";
 
 
-const Work = () => {
+const Whoamai = () => {
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2}>
@@ -16,12 +17,12 @@ const Work = () => {
 					to effectively self-manage during independent projects, as well as
 					collaborate as part of a productive team <Dot/></Text>
 			</Flex>
-			<Button bg={'secondary'} color={'black'} mt={4}>
-				<HStack alignItems={'center'}>
-					<Text>Roman&apos;s work</Text><MdKeyboardArrowRight/>
-				</HStack>
-			</Button>
+			<NextLink href="/works" passHref scroll={false}>
+				<Button bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight/>}>
+					Roman&apos;s work
+				</Button>
+			</NextLink>
 		</Flex>
 	)
 }
-export default Work;
+export default Whoamai;

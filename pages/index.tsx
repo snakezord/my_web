@@ -1,16 +1,23 @@
 import type {NextPage} from 'next';
-import {Flex} from '@chakra-ui/react';
+import {VStack} from '@chakra-ui/react';
 import Me from '../components/me';
-import Work from "../components/work";
+import Whoamai from "../components/whoamai";
 import {Social} from "../components/social";
+import ContentLayout from "../components/layout/contentLayout";
 
 const Home: NextPage = () => {
 	return (
-		<Flex direction={'column'} gap={10} pt={10}>
-			<Me/>
-			<Work/>
-			<Social/>
-		</Flex>
+		<VStack spacing={10} align={'flex-start'}>
+			<ContentLayout>
+				<Me/>
+			</ContentLayout>
+			<ContentLayout delay={0.2}>
+				<Whoamai/>
+			</ContentLayout>
+			<ContentLayout delay={0.4}>
+				<Social/>
+			</ContentLayout>
+		</VStack>
 	);
 };
 

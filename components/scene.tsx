@@ -20,11 +20,9 @@ const Scene = () => {
 const Model = () => {
 	const mesh = useRef<any>(null);
 	const model = useLoader(GLTFLoader, "./rhetorician/scene.gltf");
-
 	const {actions} = useAnimations(model.animations, mesh);
 
 	useEffect(() => {
-		console.log('load')
 		actions['Take 01']?.setDuration(5).play()
 	}, [actions]);
 

@@ -1,15 +1,16 @@
-import {Box, Flex, HStack, Tooltip} from "@chakra-ui/react";
+import {Box, Flex, HStack, Link, Tooltip} from "@chakra-ui/react";
 import {Title} from "./title";
 import {
 	FaGithub,
 	FaLinkedinIn,
 	FaTwitter,
+	FaExternalLinkAlt
 } from "react-icons/fa";
 import {FcDocument} from "react-icons/fc";
 import {IconType} from "react-icons";
 import {FC} from "react";
 
-type SocialLinks = 'github' | 'linkedIn' | 'twitter' | 'resume';
+type SocialLinks = 'github' | 'linkedIn' | 'twitter' | 'resume' | 'website' | string;
 type NameToIcon = {
 	[key in SocialLinks]: IconType;
 }
@@ -19,18 +20,34 @@ const SocialIcon: NameToIcon = {
 	linkedIn: FaLinkedinIn,
 	twitter: FaTwitter,
 	resume: FcDocument,
+	website: FaExternalLinkAlt
 }
 
-const SocialLink: FC<{ name: SocialLinks, href: string }> = ({name, href}) => {
-	const Icon = SocialIcon[name];
+interface SocialLinkProps {
+	name: SocialLinks
+	href: string
+	icon?: IconType
+	w?: string
+	h?: string
+}
+
+export const SocialLink: FC<SocialLinkProps> = (
+	{
+		name,
+		href,
+		icon,
+		w = '40px',
+		h = '40px'
+	}) => {
+	const Icon = SocialIcon[name] || icon;
 	return (
-		<a href={href} target={'_blank'} rel="noreferrer">
+		<Link href={href} target={'_blank'} rel="noreferrer">
 			<Tooltip label={name} bg={'secondary'} color={'black'}>
-				<Box w={'40px'} h={'40px'} borderRadius={'100%'} p={1} _hover={{boxShadow: 'md'}}>
-					<Icon size={'100%'}/>
+				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{boxShadow: 'md'}}>
+					<Icon size={'100%'} fill={'#000000B3'}/>
 				</Box>
 			</Tooltip>
-		</a>
+		</Link>
 	)
 }
 
