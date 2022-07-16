@@ -55,7 +55,11 @@ const Works = () => {
 				{
 					WORK.map((work, i) => (
 						<ContentLayout key={i} delay={i * 0.2}>
-							<GridItem p={2} pb={8} bg={`${colorMode}.brand.200`} borderRadius={'10px'}>
+							<GridItem
+								p={2} pb={8}
+								bg={`${colorMode}.brand.200`} css={{backdropFilter: 'blur(3px)'}}
+								borderRadius={'10px'}
+							>
 								<Work {...work}/>
 							</GridItem>
 						</ContentLayout>

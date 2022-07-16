@@ -20,7 +20,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 	const posPropsGrid1 = isLargerThan1280
 		? {
 			colStart: 3,
-			colEnd: 9
+			colEnd: 8
 		}
 		: {
 			colStart: 2,
@@ -28,8 +28,8 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 		};
 	const posPropsGrid2 = isLargerThan1280
 		? {
-			colStart: 9,
-			colEnd: 12,
+			colStart: 8,
+			colEnd: 11,
 			h: '70vh'
 		}
 		: {
@@ -44,7 +44,11 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 			<Seo/>
 			<Header/>
 			<Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'}>
-				<GridItem {...posPropsGrid1} pt={'5%'}>
+				<GridItem
+					{...posPropsGrid1}
+					pt={'5%'}
+					// border={'2px solid red'}
+				>
 					<Container maxW={'container.md'}>
 						{children}
 					</Container>
@@ -54,6 +58,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 					display={'flex'} alignItems={'center'} justifyContent={'center'}
 					css={{cursor: 'grab'}}
 					zIndex={0}
+					// border={'2px solid blue'}
 				>
 					<Scene/>
 				</GridItem>

@@ -1,5 +1,4 @@
 import 'react-awesome-slider/dist/styles.css';
-import 'react-awesome-slider/dist/custom-animations/cube-animation.css';
 import AwesomeSlider from "react-awesome-slider";
 import {FC, useMemo} from "react";
 import {Box} from "@chakra-ui/react";
@@ -14,11 +13,8 @@ const Slider: FC<{ images: string[] }> = ({images}) => {
 	}, [] as Media[]), [images]);
 
 	return (
-		<Box w={'100%'} h={'100%'} border={'2px solid #000000A3'}>
-			<AwesomeSlider
-				media={media}
-				transitionDelay={0}
-			/>
+		<Box w={'100%'} h={'100%'} border={'2px solid #00000040'}>
+			<AwesomeSlider media={media}/>
 		</Box>
 	)
 };

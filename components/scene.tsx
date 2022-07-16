@@ -2,15 +2,13 @@ import {useRef} from 'react';
 import {useLoader, Canvas, useFrame} from "@react-three/fiber";
 import {OrbitControls, useAnimations, Environment, Html} from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {useColorMode, useMediaQuery} from "@chakra-ui/react";
+import {useColorModeValue, useMediaQuery} from "@chakra-ui/react";
 import Typewriter, {TypewriterClass} from 'typewriter-effect';
 
 const Scene = () => {
-	const {colorMode} = useColorMode();
 	return (
 		<Canvas>
-			<ambientLight intensity={colorMode === 'light' ? .5 : 0}/>
-			<Environment preset={colorMode === 'light' ? 'lobby' : 'night'}/>
+			<ambientLight intensity={useColorModeValue(1, 0)}/>
 			<Model/>
 			<OrbitControls enableZoom={false}/>
 		</Canvas>
@@ -29,7 +27,7 @@ const Model = () => {
 	});
 
 	return (
-		<group position={[0, 0, 0]} dispose={null}>
+		<group position={[0, isLargerThan1280 ? .5 : 0, isLargerThan1280 ? .6 : 0]} dispose={null}>
 			<mesh ref={mesh} position={[0, -3, 0]}>
 				<primitive object={model.scene}/>
 			</mesh>

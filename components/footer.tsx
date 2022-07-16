@@ -4,7 +4,6 @@ const Footer = () => {
 	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<Box
-			w="100%"
 			bottom={0}
 			position={isLargerThan600 ? 'fixed' : 'initial'}
 			zIndex={5}

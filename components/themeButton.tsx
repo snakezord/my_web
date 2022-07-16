@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import {Box, IconButton, useColorMode} from "@chakra-ui/react";
+import {Box, IconButton, useColorMode, useColorModeValue} from "@chakra-ui/react";
 import {MdDarkMode, MdLightMode} from "react-icons/md";
 
 const ThemeButton = () => {
@@ -20,11 +20,7 @@ const ThemeButton = () => {
 					bg={`${colorMode}.brand.400`}
 					color={'white'}
 				>
-					{colorMode === 'light' ? (
-						<MdDarkMode size={24}/>
-					) : (
-						<MdLightMode size={24}/>
-					)}
+					{useColorModeValue(<MdDarkMode size={24}/>, <MdLightMode size={24}/>)}
 				</IconButton>
 			</motion.div>
 		</Box>
