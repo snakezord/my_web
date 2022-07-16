@@ -25,7 +25,7 @@ const LinkItem: FC<LinkI> = ({children, removeDecoration = false, target = '_sel
 	const router = useRouter();
 
 	return (
-		<NextLink {...nextProps} passHref={true} scroll={false}>
+		<NextLink {...nextProps} passHref={true}>
 			<Link
 				w={'100%'}
 				style={{textDecoration: 'none'}}

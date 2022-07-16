@@ -18,7 +18,7 @@ const Whoamai = () => {
 					to effectively self-manage during independent projects, as well as
 					collaborate as part of a productive team <Dot/></Text>
 			</Flex>
-			<NextLink href="/works" passHref scroll={false}>
+			<NextLink href="/works" passHref>
 				<Button bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight/>}>
 					Latest work
 				</Button>
