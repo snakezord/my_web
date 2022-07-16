@@ -5,7 +5,7 @@ import {
 	Stack,
 	Tag,
 	Text,
-	useColorMode,
+	useColorMode, useMediaQuery,
 	VStack, Wrap, WrapItem
 } from "@chakra-ui/react";
 import ContentLayout from "../components/layout/contentLayout";
@@ -22,20 +22,21 @@ interface WorkProps {
 }
 
 const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
+	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<Stack direction={['column', 'row']} alignItems={'center'}>
 			<VStack spacing={3} alignItems={'center'} p={3} position={'relative'}>
 				<Box position={'absolute'} top={0} right={0}>
 					{url && <SocialLink name={'website'} href={url} w='30px' h='30px'/>}
 				</Box>
-				<Text fontSize={'md'} fontWeight={'bold'}>{title}</Text>
+				<Text fontSize={isLargerThan600 ? 'md' : 'small'} fontWeight={'bold'}>{title}</Text>
 				<Divider/>
-				<Text>{description}</Text>
+				<Text fontSize={isLargerThan600 ? 'initial' : 'x-small'}>{description}</Text>
 				<Wrap spacing={1} w={'100%'}>
 					{
 						stack.map((name, index) => (
 							<WrapItem key={index}>
-								<Tag>{name}</Tag>
+								<Tag fontSize={isLargerThan600 ? 'initial' : 'x-small'}>{name}</Tag>
 							</WrapItem>
 						))
 					}
@@ -48,9 +49,10 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
 
 const Works = () => {
 	const {colorMode} = useColorMode();
+	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<VStack spacing={2} align={'flex-start'}>
-			<Heading>Latest work</Heading>
+			<Heading fontSize={isLargerThan600 ? 'x-large' : 'large'}>Latest work</Heading>
 			<SimpleGrid columns={[1, 2]} spacing={10}>
 				{
 					WORK.map((work, i) => (
