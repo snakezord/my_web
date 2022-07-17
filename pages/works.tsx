@@ -32,7 +32,7 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
 					{url && <SocialLink name={'website'} href={url} w='30px' h='30px'/>}
 				</Box>
 				<Text
-					fontSize={isLargerThan600 ? 'lg' : 'small'}
+					fontSize={isLargerThan600 ? 'lg' : 'md'}
 					fontWeight={'bold'}
 					borderRadius={'5px'}
 					p={1}
@@ -49,7 +49,7 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
 					}
 				/>
 				<Text
-					fontSize={isLargerThan600 ? 'initial' : 'x-small'}
+					fontSize={isLargerThan600 ? 'md' : 'small'}
 					borderRadius={'5px'}
 					p={1}
 					boxShadow={
@@ -64,7 +64,7 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
 					{
 						stack.map((name, index) => (
 							<WrapItem key={index}>
-								<Tag fontSize={isLargerThan600 ? 'initial' : 'x-small'} variant={'outline'}
+								<Tag fontSize={isLargerThan600 ? 'md' : 'x-small'} variant={'outline'}
 										 boxShadow={
 											 `1.5px 1.5px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
 											 `-1.5px -1.5px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
@@ -118,7 +118,7 @@ export default Works;
 const WORK: WorkProps[] = [
 	{
 		title: 'Complete Digitalization of Core Shipping Operations',
-		description: 'Helping shipping companies harness digital to add new capabilities, increase efficiencies, and reduce operational costs',
+		description: 'Helping shipping companies harness digital to add new capabilities, increase efficiencies, and reduce operational costs.',
 		stack: ['React', 'MUI', 'Google Cloud', 'Firebase', 'Mailgun', 'more'],
 		images: [
 			'/images/transportation_home.jpeg',
@@ -130,7 +130,7 @@ const WORK: WorkProps[] = [
 	},
 	{
 		title: 'Powering Contactless Guest Experiences at Scale',
-		description: 'Delivering custom-built technology solutions that improve the experience quality across the guest journey',
+		description: 'Delivering custom-built technology solutions that improve the experience quality across the guest journey.',
 		stack: ['React', 'MUI', 'Google Cloud', 'Firebase', 'Mailgun', 'more'],
 		images: [
 			'/images/nomadix_cover.jpeg',
