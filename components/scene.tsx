@@ -1,6 +1,6 @@
 import {useRef} from 'react';
 import {useLoader, Canvas, useFrame} from "@react-three/fiber";
-import {OrbitControls, useAnimations, Environment, Html} from "@react-three/drei";
+import {OrbitControls, useAnimations, Html} from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {useColorModeValue, useMediaQuery} from "@chakra-ui/react";
 import Typewriter, {TypewriterClass} from 'typewriter-effect';

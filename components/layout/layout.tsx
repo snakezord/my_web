@@ -5,6 +5,9 @@ import {Header} from "../header";
 import Seo from "../seo";
 import {useMediaQuery} from '@chakra-ui/react'
 import Footer from "../footer";
+import {useGLTF} from "@react-three/drei";
+
+useGLTF.preload("./scene.glb");
 
 const Scene = dynamic(() => import('../scene'), {
 	ssr: false,
