@@ -5,7 +5,7 @@ import {
 	Stack,
 	Tag,
 	Text,
-	useColorMode, useMediaQuery,
+	useColorMode, useColorModeValue, useMediaQuery,
 	VStack, Wrap, WrapItem
 } from "@chakra-ui/react";
 import ContentLayout from "../components/layout/contentLayout";
@@ -23,20 +23,56 @@ interface WorkProps {
 
 const Work: FC<WorkProps> = ({title, description, stack, images, url}) => {
 	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+	const {colorMode} = useColorMode();
 	return (
 		<Stack direction={['column', 'row']} alignItems={'center'}>
 			<VStack spacing={3} alignItems={'center'} p={3} position={'relative'}>
-				<Box position={'absolute'} top={0} right={0}>
+				<Box position={'absolute'} top={-1.5} right={-1.5}
+				>
 					{url && <SocialLink name={'website'} href={url} w='30px' h='30px'/>}
 				</Box>
-				<Text fontSize={isLargerThan600 ? 'md' : 'small'} fontWeight={'bold'}>{title}</Text>
-				<Divider/>
-				<Text fontSize={isLargerThan600 ? 'initial' : 'x-small'}>{description}</Text>
-				<Wrap spacing={1} w={'100%'}>
+				<Text
+					fontSize={isLargerThan600 ? 'lg' : 'small'}
+					fontWeight={'bold'}
+					borderRadius={'5px'}
+					p={1}
+					boxShadow={
+						`2px 2px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+						`-2px -2px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+					}
+				>{title}</Text>
+				<Divider
+					p={.7}
+					boxShadow={
+						`2px 2px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+						`-2px -2px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+					}
+				/>
+				<Text
+					fontSize={isLargerThan600 ? 'initial' : 'x-small'}
+					borderRadius={'5px'}
+					p={1}
+					boxShadow={
+						`2px 2px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+						`-2px -2px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+					}
+				>{description}</Text>
+				<Wrap spacing={2} w={'100%'}
+							borderRadius={'5px'}
+							p={2}
+				>
 					{
 						stack.map((name, index) => (
 							<WrapItem key={index}>
-								<Tag fontSize={isLargerThan600 ? 'initial' : 'x-small'}>{name}</Tag>
+								<Tag fontSize={isLargerThan600 ? 'initial' : 'x-small'} variant={'outline'}
+										 boxShadow={
+											 `1.5px 1.5px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+											 `-1.5px -1.5px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+										 }
+										 color={colorMode === 'light' ? '#000000' : '#ffffff'}
+								>
+									{name}
+								</Tag>
 							</WrapItem>
 						))
 					}
@@ -59,8 +95,13 @@ const Works = () => {
 						<ContentLayout key={i} delay={i * 0.2}>
 							<GridItem
 								p={2} pb={8}
-								bg={`${colorMode}.brand.200`} css={{backdropFilter: 'blur(3px)'}}
+								bg={`${colorMode}.brand.200`}
+								css={{backdropFilter: 'blur(3px)'}}
 								borderRadius={'10px'}
+								boxShadow={
+									`5px 5px 7px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+									`-5px -5px 7px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+								}
 							>
 								<Work {...work}/>
 							</GridItem>

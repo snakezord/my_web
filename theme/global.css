@@ -37,3 +37,7 @@
     font-size: xx-large;
     font-weight: bold;
 }
+
+.image-gallery img {
+    border-radius: 10px;
+}

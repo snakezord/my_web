@@ -1,4 +1,4 @@
-import {Button, Flex, Text, useMediaQuery} from "@chakra-ui/react";
+import {Button, Flex, Text, useColorMode, useMediaQuery} from "@chakra-ui/react";
 import {Dot} from "./me";
 import {MdKeyboardArrowRight} from 'react-icons/md';
 import {Title} from "./title";
@@ -7,6 +7,7 @@ import NextLink from "next/link";
 
 const Whoamai = () => {
 	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+	const {colorMode} = useColorMode();
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2}>
@@ -19,7 +20,12 @@ const Whoamai = () => {
 					collaborate as part of a productive team <Dot/></Text>
 			</Flex>
 			<NextLink href="/works" passHref>
-				<Button bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight/>}>
+				<Button
+					boxShadow={
+						`3px 3px 6px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+						`-3px -3px 6px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+					}
+					bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight/>}>
 					Latest work
 				</Button>
 			</NextLink>

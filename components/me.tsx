@@ -1,4 +1,4 @@
-import {Box, Text, chakra, Stack, VStack, useMediaQuery} from "@chakra-ui/react";
+import {Box, Text, chakra, Stack, VStack, useMediaQuery, useColorMode} from "@chakra-ui/react";
 import {FC} from "react";
 import Image from 'next/image';
 
@@ -7,8 +7,18 @@ export const ChakraImage = chakra(Image, {
 });
 
 export const Dot = () => {
+	const {colorMode} = useColorMode();
 	return (
-		<Box as={'span'} bg={'primary'} p={'2px'} mx={'3px'}>.</Box>
+		<Box
+			as={'span'}
+			bg={'primary'}
+			p={'2px'}
+			mx={'3px'}
+			boxShadow={
+				`2px 2px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+				`-2px -2px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+			}
+		>.</Box>
 	)
 };
 

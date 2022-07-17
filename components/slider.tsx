@@ -1,23 +1,39 @@
-import 'react-awesome-slider/dist/styles.css';
-import AwesomeSlider from "react-awesome-slider";
+import "react-image-gallery/styles/css/image-gallery.css";
 import {FC, useMemo} from "react";
-import {Box} from "@chakra-ui/react";
+import {Box, useColorMode} from "@chakra-ui/react";
+import ImageGallery, {ReactImageGalleryItem} from 'react-image-gallery';
 
-type Media = { source: string };
+export const Slider: FC<{ images: string[] }> = ({images}) => {
+	const {colorMode} = useColorMode();
 
-const Slider: FC<{ images: string[] }> = ({images}) => {
-	const media = useMemo(() => images.reduce((arr, el) => {
+	const items = useMemo(() => images.reduce((arr, el) => {
 		return [...arr, {
-			source: el
+			original: el,
 		}]
-	}, [] as Media[]), [images]);
+	}, [] as ReactImageGalleryItem[]), [images]);
 
 	return (
-		<Box w={'100%'} h={'100%'} border={'2px solid #00000040'}>
-			<AwesomeSlider media={media}/>
+		<Box
+			w={'100%'}
+			h={'100%'}
+			borderRadius={'10px'}
+			p={1}
+			boxShadow={
+				`2px 2px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+				`-2px -2px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+			}
+		>
+			<ImageGallery
+				items={items}
+				showThumbnails={false}
+				showPlayButton={false}
+				showBullets
+				additionalClass={'image-gallery'}
+				slideDuration={200}
+			/>
 		</Box>
 	)
-};
+}
 
 
 export default Slider;
