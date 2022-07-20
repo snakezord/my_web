@@ -24,6 +24,7 @@ export const Slider: FC<{ images: string[] }> = ({images}) => {
 			}
 		>
 			<ImageGallery
+				lazyLoad={true}
 				items={items}
 				showThumbnails={false}
 				showPlayButton={false}
