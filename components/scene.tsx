@@ -1,9 +1,10 @@
-import {Suspense, useRef} from 'react';
+import {FC, Suspense, useRef} from 'react';
 import {useLoader, Canvas, useFrame} from "@react-three/fiber";
 import {OrbitControls, useAnimations, Html, useProgress} from "@react-three/drei";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {CircularProgress, useColorModeValue, useMediaQuery} from "@chakra-ui/react";
 import Typewriter, {TypewriterClass} from 'typewriter-effect';
+import {AnimationClip, Group} from "three";
 
 function Loader() {
 	const {progress} = useProgress()
@@ -15,22 +16,21 @@ function Loader() {
 }
 
 const Scene = () => {
+	const {scene, animations} = useLoader(GLTFLoader, "./scene.glb");
 	return (
 		<Canvas>
+			<ambientLight intensity={useColorModeValue(1, 0)}/>
 			<Suspense fallback={<Loader/>}>
-				<ambientLight intensity={useColorModeValue(1, 0)}/>
-				<Model/>
-				<OrbitControls enableZoom={false}/>
+				<Model scene={scene} animations={animations}/>
 			</Suspense>
+			<OrbitControls enableZoom={false}/>
 		</Canvas>
 	);
 };
 
-const Model = () => {
+const Model: FC<{ scene: Group, animations: AnimationClip[] }> = ({scene, animations}) => {
 	const group = useRef<any>(null);
-	const model = useLoader(GLTFLoader, "./scene.glb");
-	const {actions} = useAnimations(model.animations, group);
-
+	const {actions} = useAnimations(animations, group);
 	const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
 
 	useFrame(() => {
@@ -40,7 +40,7 @@ const Model = () => {
 	return (
 		<group ref={group} position={[0, isLargerThan1280 ? .5 : 0, isLargerThan1280 ? .6 : 0]} dispose={null}>
 			<mesh position={[0, -3, 0]}>
-				<primitive object={model.scene}/>
+				<primitive object={scene}/>
 			</mesh>
 			<Html center position={[-1.1, isLargerThan1280 ? 1 : -1, 0]} id={undefined}>
 				<Typewriter
@@ -54,7 +54,7 @@ const Model = () => {
 				/>
 			</Html>
 		</group>
-	);
+	)
 };
 
 export default Scene;

@@ -6,6 +6,9 @@ import Seo from "../seo";
 import {useMediaQuery} from '@chakra-ui/react'
 import Footer from "../footer";
 import NextNProgress from "nextjs-progressbar";
+import {useGLTF} from "@react-three/drei";
+
+useGLTF.preload('./scene.glb')
 
 const Scene = dynamic(() => import('../scene'), {
 	ssr: false,
