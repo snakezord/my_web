@@ -5,6 +5,7 @@ import {Header} from "../header";
 import Seo from "../seo";
 import {useMediaQuery} from '@chakra-ui/react'
 import Footer from "../footer";
+import NextNProgress from "nextjs-progressbar";
 
 const Scene = dynamic(() => import('../scene'), {
 	ssr: false,
@@ -43,6 +44,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 		<Box w='100%' minH='100vh' h='100%' bg={`${colorMode}.brand.100`}>
 			<Seo/>
 			<Header/>
+			<NextNProgress height={3} color={'#F9248FB3'}/>
 			<Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'}>
 				<GridItem
 					{...posPropsGrid1}
