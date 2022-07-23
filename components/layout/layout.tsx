@@ -48,11 +48,10 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 			<Seo/>
 			<Header/>
 			<NextNProgress height={3} color={'#F9248FB3'}/>
-			<Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'}>
+			<Grid templateColumns={'repeat(12, 1fr)'} py={'5%'}>
 				<GridItem
 					{...posPropsGrid1}
 					pt={'5%'}
-					// border={'2px solid red'}
 				>
 					<Container maxW={'container.md'}>
 						{children}

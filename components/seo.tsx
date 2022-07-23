@@ -11,6 +11,7 @@ const Seo = () => {
 			<meta name="twitter:title" content="Roman Zhydyk"/>
 			<meta name="twitter:site" content="@2_comma_club"/>
 			<meta name="twitter:creator" content="@2_comma_club"/>
+			<meta name="twitter:content" content="Software Engineer. Crypto Enthusiast. Truth seeker"/>
 			<link rel='icon' href='/favicon.ico'/>
 		</Head>
 	)
