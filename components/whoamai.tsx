@@ -1,5 +1,4 @@
 import {Button, Flex, Text, useColorMode, useMediaQuery} from "@chakra-ui/react";
-import {Dot} from "./me";
 import {MdKeyboardArrowRight} from 'react-icons/md';
 import {Title} from "./title";
 import ReactCountryFlag from "react-country-flag"
@@ -12,12 +11,12 @@ const Whoamai = () => {
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2}>
 				<Title title={'whoami'}/>
-				<Text fontSize={isLargerThan600 ? 'initial' : 'small'}>Roman is a <b>software engineer</b> based in
+				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>Roman is a <b>software engineer</b> based in
 					Portugal <ReactCountryFlag countryCode="PT"/>.<br/>
 					<b>Experienced</b> with the latest cutting-edge development tools and
 					procedures. <br/><b>Equipped</b> with a diverse and promising skill-set. <br/><b>Able </b>
 					to effectively self-manage during independent projects, as well as
-					collaborate as part of a productive team <Dot/></Text>
+					collaborate as part of a productive team.</Text>
 			</Flex>
 			<NextLink href="/works" passHref>
 				<Button

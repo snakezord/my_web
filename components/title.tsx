@@ -4,7 +4,7 @@ import {Box, Flex, Text, useColorMode} from "@chakra-ui/react";
 export const Title: FC<{ title: string, fontSize?: string, fontWeight?: string, h?: string }> = (
 	{
 		title,
-		fontSize = 'larger',
+		fontSize = 'lg',
 		fontWeight = 'bold',
 		h = '4px'
 	}

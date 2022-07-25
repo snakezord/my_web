@@ -29,6 +29,14 @@ const theme = extendTheme({
 		body: `'Roboto', sans-serif`,
 	},
 	config,
+	fontSizes: {
+		'xx-small': ".8rem",
+		'x-small': ".9rem",
+		sm: "1rem",
+		md: "1.2rem",
+		lg: "1.3rem",
+		'x-large': "1.4rem",
+	},
 	colors: {
 		light,
 		dark,

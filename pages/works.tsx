@@ -40,10 +40,10 @@ const Description: FC<{ description: string }> = ({description}) => {
 		>
 			<Text
 				fontWeight={'bold'}
-				fontSize={isLargerThan600 ? 'md' : 'smaller'}
+				fontSize={isLargerThan600 ? 'md' : 'sm'}
 			>Description</Text>
 			<Text
-				fontSize={isLargerThan600 ? 'md' : 'small'}
+				fontSize={isLargerThan600 ? 'sm' : 'x-small'}
 			>
 				{description}
 			</Text>
@@ -66,9 +66,9 @@ const Achievements: FC<{ achievements: string[] }> = ({achievements}) => {
 		>
 			<Text
 				fontWeight={'bold'}
-				fontSize={isLargerThan600 ? 'md' : 'smaller'}
+				fontSize={isLargerThan600 ? 'md' : 'sm'}
 			>Achievements</Text>
-			<List fontSize={isLargerThan600 ? 'small' : 'x-small'}>
+			<List fontSize={isLargerThan600 ? 'sm' : 'x-small'}>
 				{
 					achievements.map((achievement, i) => (
 						<ListItem key={i}>
@@ -101,22 +101,24 @@ const UsedStack: FC<{ stack: string[] }> = ({stack}) => {
 		>
 			<Text
 				fontWeight={'bold'}
-				fontSize={isLargerThan600 ? 'md' : 'smaller'}
+				fontSize={isLargerThan600 ? 'md' : 'sm'}
 			>Stack</Text>
 			<Wrap
 				spacing={2}
 				w={'100%'}
 				pb={2}
+				px={.5}
 			>
 				{
 					stack.map((name, index) => (
 						<WrapItem key={index}>
-							<Tag fontSize={isLargerThan600 ? 'small' : 'x-small'} variant={'outline'}
-									 boxShadow={
-										 `1.5px 1.5px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
-										 `-1.5px -1.5px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
-									 }
-									 color={colorMode === 'light' ? '#000000' : '#ffffff'}
+							<Tag
+								fontSize={isLargerThan600 ? 'sm' : 'xx-small'} variant={'outline'}
+								boxShadow={
+									`1.5px 1.5px 4px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
+									`-1.5px -1.5px 4px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
+								}
+								color={colorMode === 'light' ? '#000000' : '#ffffff'}
 							>
 								{name}
 							</Tag>
@@ -144,7 +146,7 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url, achievemen
 				}
 			>
 				<Text
-					fontSize={isLargerThan600 ? 'lg' : 'smaller'}
+					fontSize={isLargerThan600 ? 'lg' : 'sm'}
 					fontWeight={'bold'}
 				>{title}</Text>
 				<Box>
@@ -159,15 +161,13 @@ const Work: FC<WorkProps> = ({title, description, stack, images, url, achievemen
 				}
 			/>
 			<Description description={description}/>
-			<Stack direction={['column-reverse', 'row']} align={'center'}>
+			<Stack direction={['column-reverse', 'row']} spacing={3} align={'flex-start'}>
 				<Box w={isLargerThan600 ? '50%' : '100%'}>
 					<Slider images={images}/>
 				</Box>
-				<VStack align={'stretch'}>
-					<Achievements achievements={achievements}/>
-					<UsedStack stack={stack}/>
-				</VStack>
+				<Achievements achievements={achievements}/>
 			</Stack>
+			<UsedStack stack={stack}/>
 		</VStack>
 	)
 }

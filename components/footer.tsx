@@ -12,7 +12,8 @@ const Footer = () => {
 			bg={useColorModeValue('#F0ECE240', '#022C4380')}
 			css={{backdropFilter: 'blur(3px)'}}
 		>
-			<Text fontSize={isLargerThan600 ? 'initial' : 'small'}><Box as={'span'} bg={'primary'}>By</Box> Roman Zhydyk 2022</Text>
+			<Text fontSize={isLargerThan600 ? 'md' : 'small'}><Box as={'span'} bg={'primary'}>By</Box> Roman Zhydyk
+				2022</Text>
 		</Box>
 	)
 }

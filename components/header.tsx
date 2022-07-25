@@ -29,6 +29,7 @@ const LinkItem: FC<LinkI> = ({children, removeDecoration = false, target = '_sel
 			<Link
 				w={'100%'}
 				style={{textDecoration: 'none'}}
+				fontSize={'md'}
 				textUnderlineOffset='5px'
 				className={`hover-underline-animation ${(router.asPath === href && href !== '/') && 'active'}`}
 				target={target}
@@ -118,7 +119,7 @@ export const Header = () => {
 							href={'/'}
 							removeDecoration
 						>
-							<Text fontSize='lg' fontWeight='bold'>
+							<Text fontSize='md' fontWeight='bold'>
 								Roman Zhydyk
 							</Text>
 						</LinkItem>

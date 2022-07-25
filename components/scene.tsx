@@ -34,7 +34,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[] }> = ({scene, animat
 	const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
 
 	useFrame(() => {
-		actions['Take 01']?.setDuration(5).play()
+		actions['Take 01']?.setDuration(12).play()
 	});
 
 	return (
