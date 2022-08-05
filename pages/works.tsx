@@ -150,7 +150,6 @@ const Works = () => {
 			<Seo
 				metaTitle={"Roman Zhydyk's website & blog"}
 				metaDescription={"Check out his latest work!"}
-				shareImage={"/me_square.jpeg"}
 			/>
 			<ContentLayout title={'Latest Work'}>
 				{

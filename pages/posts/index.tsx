@@ -57,7 +57,6 @@ const Posts = (props: any) => {
 				metaTitle={"Roman Zhydyk's personal blog"}
 				metaDescription={"From time to time Roman likes to write about interesting stuff. " +
 					"It can be anything from tech to crypto, from economics to politics, from workouts to diets & self-improvement."}
-				shareImage={"/me_square.jpeg"}
 			/>
 			<ContentLayout title={'Latest Posts'}>
 				{props.articles.data.length === 0 ? <Text>No posts yet...</Text>

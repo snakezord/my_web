@@ -18,7 +18,6 @@ const Home: NextPage = () => {
 					"Roman is a software engineer with a diverse skill-set. " +
 					"Like a real man, he constantly seeks improvement—both physically & mentally."
 				}
-				shareImage={"/me_square.jpeg"}
 			/>
 			<VStack spacing={isLargerThan600 ? 12 : 6} align={'flex-start'}>
 				<Animate>
