@@ -1,26 +1,22 @@
-import {motion} from "framer-motion";
+import {Heading, SimpleGrid, useMediaQuery, VStack} from "@chakra-ui/react";
 import {FC, PropsWithChildren} from "react";
 
-interface ContentLayoutProps extends PropsWithChildren {
-	delay?: number
-}
-
-const variants = {
-	hidden: {opacity: 0, x: 0, y: 20},
-	enter: {opacity: 1, x: 0, y: 0},
-}
-
-const ContentLayout: FC<ContentLayoutProps> = ({children, delay}) => {
+const ContentLayout: FC<{ title: string } & PropsWithChildren> = ({children, title}) => {
+	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
-		<motion.div
-			initial="hidden"
-			animate="enter"
-			variants={variants}
-			transition={{duration: 0.3, type: 'easeInOut', delay}}
-		>
-			{children}
-		</motion.div>
+		<VStack spacing={5} align={'flex-start'}>
+			<Heading fontSize={isLargerThan600 ? 'x-large' : 'large'}>{title}</Heading>
+			<SimpleGrid
+				columns={1}
+				spacing={8}
+				h={'100%'}
+				p={'5px'}
+				borderRadius={'10px'}
+			>
+				{children}
+			</SimpleGrid>
+		</VStack>
 	)
 }
 
-export default ContentLayout;
+export default ContentLayout

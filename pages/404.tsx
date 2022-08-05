@@ -4,12 +4,11 @@ import {
 	Text,
 	Container,
 	Divider,
-	Button, useColorMode, Center
+	Center
 } from '@chakra-ui/react'
-import {MdKeyboardArrowRight} from "react-icons/md";
+import CallToActionButton from "../components/callToActionButton";
 
 const NotFound = () => {
-	const {colorMode} = useColorMode();
 	return (
 		<Container>
 			<Heading as="h1">Not found</Heading>
@@ -17,14 +16,7 @@ const NotFound = () => {
 			<Divider my={6}/>
 			<Center my={6}>
 				<NextLink href="/" passHref>
-					<Button
-						boxShadow={
-							`3px 3px 6px ${colorMode === 'light' ? '#b6b3ac' : '#022133'}, ` +
-							`-3px -3px 6px ${colorMode === 'light' ? '#ffffff' : '#023753'}`
-						}
-						bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight/>}>
-						Return back
-					</Button>
+					<CallToActionButton text={'Return back'} href={'/'}/>
 				</NextLink>
 			</Center>
 		</Container>

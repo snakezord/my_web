@@ -17,7 +17,7 @@ function Loader() {
 }
 
 const Scene = () => {
-	const {scene, animations} = useLoader(GLTFLoader, "./scene.glb");
+	const {scene, animations} = useLoader(GLTFLoader, "/scene.glb");
 	const {asPath} = useRouter()
 	return (
 		<Canvas>
@@ -36,7 +36,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string }> =
 	const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
 
 	useFrame(() => {
-		actions['Take 01']?.setDuration(12).play()
+		actions['Take 01']?.setDuration(20).play()
 	});
 
 	return (
@@ -47,7 +47,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string }> =
 			<Html center position={[-1.1, isLargerThan1280 ? 1 : -1, 0]} id={undefined}>
 				<div style={{minWidth: '250px', marginLeft: '25%'}}>
 					{asPath === '/' && <Typewriter
-              options={{delay: 50}}
+              options={{delay: 40}}
               onInit={(typewriter: TypewriterClass) => {
 								typewriter
 									.typeString('Greetings visitor!')
@@ -56,10 +56,19 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string }> =
 							}}
           />}
 					{asPath === '/works' && <Typewriter
-              options={{delay: 50}}
+              options={{delay: 40}}
               onInit={(typewriter: TypewriterClass) => {
 								typewriter
 									.typeString('Check out my latest work!')
+									.pause()
+									.start();
+							}}
+          />}
+					{asPath === '/posts' && <Typewriter
+              options={{delay: 40}}
+              onInit={(typewriter: TypewriterClass) => {
+								typewriter
+									.typeString('Check out my latest posts!')
 									.pause()
 									.start();
 							}}

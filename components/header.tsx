@@ -61,9 +61,9 @@ const MediaMenu = () => {
 						<MenuItem>
 							<LinkItem href={'/works'}>Works</LinkItem>
 						</MenuItem>
-						{/*<MenuItem>*/}
-						{/*	<LinkItem href={'/posts'}>Posts</LinkItem>*/}
-						{/*</MenuItem>*/}
+						<MenuItem>
+							<LinkItem href={'/posts'}>Posts</LinkItem>
+						</MenuItem>
 						<MenuItem>
 							<LinkItem
 								href={'https://github.com/snakezord/my_web'}
@@ -81,7 +81,7 @@ const MediaMenu = () => {
 			<Hide below='md'>
 				<HStack spacing={5} pl={3}>
 					<LinkItem href={'/works'}>Works</LinkItem>
-					{/*<LinkItem href={'/posts'}>Posts</LinkItem>*/}
+					<LinkItem href={'/posts'}>Posts</LinkItem>
 					<LinkItem
 						href={'https://github.com/snakezord/my_web'}
 						target={'_blank'}
