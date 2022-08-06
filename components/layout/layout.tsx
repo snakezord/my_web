@@ -57,7 +57,7 @@ const Layout: FC<PropsWithChildren> = ({children}) => {
 			<Header/>
 			<NextNProgress height={3} color={'#F9248FB3'}/>
 			<ScrollDownSvg/>
-			<Grid templateColumns={'repeat(12, 1fr)'} py={'5%'}>
+			<Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'} pb={'2%'}>
 				<GridItem
 					{...posPropsGrid1}
 					pt={'5%'}

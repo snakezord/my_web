@@ -8,4 +8,4 @@ export const getImageUrl = (url: string) => {
 	}
 }
 
-export const server = dev ? 'http://localhost:1337' : 'https://mywebcms.herokuapp.com';
+export const server = dev ? 'https://mywebcms.herokuapp.com' : 'https://mywebcms.herokuapp.com';
