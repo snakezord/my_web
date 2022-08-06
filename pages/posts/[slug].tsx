@@ -1,5 +1,5 @@
 import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
-import {server} from "../../config";
+import {getImageUrl, server} from "../../config";
 import {AspectRatio, Box, Heading, HStack, Text, VStack} from "@chakra-ui/react";
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from "remark-gfm";
@@ -15,7 +15,7 @@ const Post = (props: any) => {
 			<Seo
 				metaTitle={props.article.attributes.title}
 				metaDescription={props.article.attributes.description}
-				shareImage={`${server}${props.article.attributes.image.data.attributes.url}`}
+				shareImage={getImageUrl(props.article.attributes.image.data.attributes.url)}
 				article
 			/>
 			<VStack align={'stretch'} spacing={3}>
@@ -35,7 +35,7 @@ const Post = (props: any) => {
 					<Text color={'GrayText'}>{props.article.attributes.description}</Text>
 				</VStack>
 				<ChakraImage
-					src={`${server}${props.article.attributes.image.data.attributes.url}`}
+					src={getImageUrl(props.article.attributes.image.data.attributes.url)}
 					alt={props.article.attributes.image.data.attributes.alternativeText}
 					width={props.article.attributes.image.data.attributes.width}
 					height={props.article.attributes.image.data.attributes.height}

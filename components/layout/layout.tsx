@@ -20,32 +20,33 @@ const Scene = dynamic(() => import('../scene'), {
 
 const Layout: FC<PropsWithChildren> = ({children}) => {
 	const {colorMode} = useColorMode();
-	const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)')
+	const [isSmallerThan1280] = useMediaQuery('(max-width: 1280px)')
 
-	const posPropsGrid1 = isLargerThan1280
+	const posPropsGrid1 = isSmallerThan1280
 		? {
-			colStart: 3,
-			colEnd: 8
-		}
-		: {
 			colStart: 1,
 			colEnd: 13
-		};
-	const posPropsGrid2 = isLargerThan1280
-		? {
-			colStart: 8,
-			colEnd: 11,
-			h: '70vh',
-			position: 'fixed',
-			right: '120px',
-			top: '120px',
-			w: '50%',
 		}
 		: {
+			colStart: 3,
+			colEnd: 8
+		};
+	const posPropsGrid2 = isSmallerThan1280
+		? {
 			colStart: 2,
 			colEnd: 12,
 			gridRow: 1,
 			h: '300px'
+		}
+		: {
+			colStart: 8,
+			colEnd: 12,
+			h: '70vh',
+			position: 'fixed',
+			right: '20px',
+			top: '120px',
+			mr: '200px',
+			w: '30%',
 		};
 
 	return (

@@ -1,6 +1,6 @@
 import {GridItem, VStack, Text, Box, Stack, useMediaQuery, HStack} from "@chakra-ui/react";
 import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
-import {server} from "../../config";
+import {getImageUrl, server} from "../../config";
 import {ChakraImage} from "../../components/me";
 import ContentLayout from "../../components/layout/contentLayout";
 import Animate from "../../components/animate";
@@ -36,7 +36,7 @@ const PostPreview: FC<{ article: any, readingStat: any }> = ({article, readingSt
 				<NextLink href={`/posts/${article.attributes.slug}`} passHref>
 					<Box borderRadius={'10px'}>
 						<ChakraImage
-							src={`${server}${article.attributes.image.data.attributes.url}`}
+							src={getImageUrl(article.attributes.image.data.attributes.url)}
 							alt={article.attributes.image.data.attributes.alternativeText}
 							width={'300px'}
 							height={'200px'}
