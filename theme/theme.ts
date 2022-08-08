@@ -4,8 +4,7 @@ const dark = {
 	brand: {
 		100: '#022C43',
 		200: '#053F5E40',
-		300: '#115173',
-		400: '#FFD700',
+		300: '#FFD700',
 	},
 };
 
@@ -13,8 +12,7 @@ const light = {
 	brand: {
 		100: '#F0ECE2',
 		200: '#DFD3C340',
-		300: '#C7B198',
-		400: '#022C43',
+		300: '#022C43',
 	},
 };
 
@@ -30,14 +28,14 @@ const theme = extendTheme({
 	},
 	config,
 	fontSizes: {
-		'xx-small': ".8rem",
-		'x-small': ".9rem",
-		sm: "1rem",
-		md: "1.2rem",
-		lg: "1.3rem",
-		'x-large': "1.4rem",
+		'xx-small': ".6rem",
+		'x-small': ".7rem",
+		sm: ".8rem",
+		md: "1rem",
+		lg: "1.1rem",
+		'x-large': "1.2rem",
 	},
-	colors: {
+  colors: {
 		light,
 		dark,
 		primary: '#F9248FB3',

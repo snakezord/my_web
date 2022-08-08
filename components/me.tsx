@@ -9,10 +9,19 @@ export const ChakraImage = chakra(Image, {
 const Me: FC = () => {
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
   return (
-    <Stack direction={['column-reverse', 'row']} align={['stretch', 'center']} spacing={isLargerThan600 ? 7 : 2}>
+    <Stack direction={['column', 'row']} align={['center', 'center']} spacing={isLargerThan600 ? 12 : 4}>
+      <Box
+        w={'120px'}
+        h={'120px'}
+        borderWidth={1} borderStyle="solid" borderColor='#ffff' borderRadius={'full'}
+        boxShadow='rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;'
+        alignSelf={'center'}
+      >
+        <ChakraImage src={'/me_square.jpeg'} alt='me' borderRadius={'full'} width="120px" height="120px" />
+      </Box>
       <VStack align='flex-start' spacing={1}>
         <Text fontSize={'4xl'} fontWeight={'bold'}>Roman Zhydyk</Text>
-        <Stack direction={['column', 'row']} spacing={0} fontSize={isLargerThan600 ? 'md' : 'sm'}>
+        <Stack direction={'row'} spacing={0} fontSize={isLargerThan600 ? 'md' : 'sm'}>
           <Text pr={2}>
             Software Engineer.
           </Text>
@@ -24,15 +33,6 @@ const Me: FC = () => {
           </Text>
         </Stack>
       </VStack>
-      <Box
-        w={'140px'}
-        h={'140px'}
-        borderWidth={1} borderStyle="solid" borderColor='#ffff' borderRadius={'full'}
-        boxShadow='rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;'
-        alignSelf={'center'}
-      >
-        <ChakraImage src={'/me_square.jpeg'} alt='me' borderRadius={'full'} width="140px" height="140px" />
-      </Box>
     </Stack>
   );
 };
