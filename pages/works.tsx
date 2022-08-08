@@ -155,11 +155,9 @@ const Works = () => {
           WORK.map((work, i) => (
             <Animate key={i} delay={i * 0.2}>
               <GridItem
-                p={2}
                 bg={`${colorMode}.brand.200`}
                 css={{ backdropFilter: 'blur(3px)' }}
                 borderRadius={'10px'}
-
               >
                 <Work {...work} />
               </GridItem>
