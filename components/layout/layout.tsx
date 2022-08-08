@@ -41,7 +41,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
     : {
       colStart: 8,
       colEnd: 12,
-      h: '70vh',
+      h: '55vh',
       position: 'fixed',
       right: '20px',
       top: '120px',
