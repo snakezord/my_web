@@ -132,7 +132,7 @@ const Work: FC<WorkProps> = ({ title, description, stack, images, url, achieveme
       </HStack>
       <Description description={description} />
       <Stack direction={['column-reverse', 'row']} spacing={3} align={'flex-start'}>
-        <Box w={isLargerThan600 ? '35%' : '100%'}>
+        <Box w={isLargerThan600 ? '50%' : '100%'}>
           <Slider images={images} />
         </Box>
         <Achievements achievements={achievements} />
