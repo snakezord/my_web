@@ -17,7 +17,7 @@ const Me: FC = () => {
         boxShadow='rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;'
         alignSelf={'center'}
       >
-        <ChakraImage src={'/me_square.jpeg'} alt='me' borderRadius={'full'} width="120px" height="120px" />
+        <ChakraImage src={'/me_new.jpeg'} alt='me' borderRadius={'full'} width="120px" height="120px" />
       </Box>
       <VStack align='flex-start' spacing={1}>
         <Text fontSize={'4xl'} fontWeight={'bold'}>Roman Zhydyk</Text>
