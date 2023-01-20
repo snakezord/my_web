@@ -1,4 +1,4 @@
-import { Box, Container, Grid, GridItem, Spacer, Spinner, useColorMode } from "@chakra-ui/react";
+import { Box, Container, Grid, GridItem, Spacer, Spinner, useColorMode, useTheme } from "@chakra-ui/react";
 import { FC, PropsWithChildren } from "react";
 import dynamic from "next/dynamic";
 import { Header } from "../header";
@@ -20,6 +20,7 @@ const Scene = dynamic(() => import('../scene'), {
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   const { colorMode } = useColorMode();
+  const theme = useTheme()
   const [isSmallerThan1280] = useMediaQuery('(max-width: 1280px)');
 
   const posPropsGrid1 = isSmallerThan1280
@@ -48,9 +49,19 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       mr: '200px',
       w: '30%',
     };
+  
+  const color1 = theme['colors'][colorMode]['brand'][100]
+  const color2 = colorMode === 'light' ? '#f6f6f6' : '#2e3546'
 
   return (
-    <Box w='100%' minH='100vh' h='100%' bg={`${colorMode}.brand.100`}>
+    <Box
+      sx={{
+        backgroundColor: '#EDE8E4',
+        opacity: 1,
+        backgroundImage: `repeating-linear-gradient( 45deg, ${color2}, ${color2} 2px, ${color1} 2px, ${color1} 10px )`
+      }}
+      w='100%' minH='100vh' h='100%' bg={`${colorMode}.brand.100`}
+    >
       <Head>
         <link rel='icon' href='/favicon.ico' />
       </Head>

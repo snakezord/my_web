@@ -105,7 +105,7 @@ export const Header = () => {
       position={'fixed'}
       zIndex={5}
       p={3}
-      css={{ backdropFilter: 'blur(3px)' }}
+      css={{ backdropFilter: 'blur(1.5px)' }}
     >
       <Container maxW={'container.lg'}>
         <HStack>

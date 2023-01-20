@@ -156,8 +156,8 @@ const Works = () => {
             <Animate key={i} delay={i * 0.2}>
               <GridItem
                 bg={`${colorMode}.brand.200`}
-                css={{ backdropFilter: 'blur(3px)' }}
-                borderRadius={'10px'}
+                css={{ backdropFilter: 'blur(1px)' }}
+                borderRadius={'12px'}
               >
                 <Work {...work} />
               </GridItem>

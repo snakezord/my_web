@@ -13,7 +13,7 @@ const light = {
 	brand: {
 		100: '#F0ECE2',
 		200: '#DFD3C340',
-		300: '#022C43',
+    300: '#022C43',
 	},
 };
 
@@ -48,7 +48,8 @@ const theme = extendTheme({
 	},
   colors: {
 		light,
-		dark,
+    dark,
+    hover: '#FFF900',
 		primary: '#F9248FB3',
 		secondary: '#FFD700',
 	},

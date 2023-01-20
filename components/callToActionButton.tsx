@@ -8,6 +8,11 @@ const CallToActionButton: FC<{ text: string, href: string; }> = ({ text, href })
     <NextLink href={href} passHref>
       <Button
         size={'sm'}
+        sx={{
+          '&:hover': {
+            bgColor: 'hover'
+          }
+        }}
         bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight />}>
         {text}
       </Button>

@@ -9,8 +9,8 @@ const Blog = () => {
 			<Flex direction={'column'} gap={2}>
 				<Title title={'blog'}/>
 				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>
-					From time to time Roman likes to write about interesting stuff.
-					It can be anything from tech to crypto, from economics to politics, from workouts to diets & self-improvement.
+          From time to time, Roman likes to write about exciting stuff. <br/>
+          His interests can vary from tech to trading, economics to politics, and from workouts to diets & self-improvement.
 				</Text>
 			</Flex>
 			<CallToActionButton text={'Latest posts'} href="/posts"/>
