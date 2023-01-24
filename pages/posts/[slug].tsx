@@ -103,6 +103,7 @@ export async function getStaticProps(path: any) {
 			}
 		`
   });
+  
   const stats = readingTime(data.articles.data[0].attributes.content);
   return { props: { article: data.articles.data[0], readingTime: stats }, revalidate: 1 };
 }

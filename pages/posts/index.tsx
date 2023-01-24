@@ -9,8 +9,9 @@ import Moment from "react-moment";
 import NextLink from "next/link";
 import Seo from "../../components/seo";
 
-const PostPreview: FC<{ article: any, readingStat: any }> = ({article, readingStat}) => {
-	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+const PostPreview: FC<{ article: any, readingStat: any}> = ({article, readingStat}) => {
+  const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
+
 	return (
 		<Stack direction={['column-reverse', 'row']} align={'stretch'} justifyContent={'space-between'}>
 			<VStack px={2} align={'flex-start'} justifyContent={'center'} w={isLargerThan600 ? '70%' : '100%'}>
@@ -51,6 +52,19 @@ const PostPreview: FC<{ article: any, readingStat: any }> = ({article, readingSt
 }
 
 const Posts = (props: any) => {
+  const { notFound } = props;
+  
+  if (notFound) return (
+    <>
+			<Seo
+				metaTitle={"Roman Zhydyk's personal blog"}
+				metaDescription={"From time to time Roman likes to write about interesting stuff. " +
+					"It can be anything from tech to crypto, from economics to politics, from workouts to diets & self-improvement."}
+			/>
+      <ContentLayout title={'No posts'} />
+		</>
+  )
+
 	return (
 		<>
 			<Seo
@@ -83,44 +97,48 @@ export async function getStaticProps() {
 		cache: new InMemoryCache()
 	})
 
-	const {data} = await client.query({
-		query: gql`
-			query {
-				articles {
-					data {
-						id
-						attributes{
-							title
-							description
-							content
-							slug
-							category{
-                data{
-                  attributes{
-                    name
+  try {
+    const {data} = await client.query({
+      query: gql`
+        query {
+          articles {
+            data {
+              id
+              attributes{
+                title
+                description
+                content
+                slug
+                category{
+                  data{
+                    attributes{
+                      name
+                    }
                   }
                 }
+                image{
+                  data{
+                    id
+                    attributes{
+                      url
+                      alternativeText
+                    }
+                  }
+                }
+                createdAt
               }
-							image{
-								data{
-									id
-									attributes{
-										url
-										alternativeText
-									}
-								}
-							}
-							createdAt
-						}
-					}
-				}
-			}
-		`
-	});
+            }
+          }
+        }
+      `
+    });
 
-	const stats = data.articles.data.map((article: any) => readingTime(article.attributes.content))
+    const stats = data.articles.data.map((article: any) => readingTime(article.attributes.content))
 
 	return {props: {articles: data.articles, stats}, revalidate: 2}
+  } catch (error) {
+    return {props: {notFound: true}}
+  }
 }
 
 export default Posts;
