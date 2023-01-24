@@ -8,7 +8,6 @@ import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import { ChakraImage } from "../../components/me";
 import Moment from "react-moment";
 import Seo from "../../components/seo";
-import Link from "next/link";
 
 const Post = (props: any) => {
   return (
@@ -69,41 +68,42 @@ export async function getStaticProps(path: any) {
     uri: `${server}/graphql`,
     cache: new InMemoryCache()
   });
+
   const { data } = await client.query({
     query: gql`
-			query {
-				articles(filters:{slug: {eq: "${path.params.slug}"}}) {
-					data {
-						attributes{
-							title
-							description
-							content
-							slug
-							category{
+      query {
+        articles(filters:{slug: {eq: "${path.params.slug}"}}) {
+          data {
+            attributes{
+              title
+              description
+              content
+              slug
+              category{
                 data{
                   attributes{
                     name
                   }
                 }
               }
-							image{
-								data{
-									attributes{
-										alternativeText
-										width
-										height
-										url
-									}
-								}
-							}
-							createdAt
-						}
-					}
-				}
-			}
-		`
+              image{
+                data{
+                  attributes{
+                    alternativeText
+                    width
+                    height
+                    url
+                  }
+                }
+              }
+              createdAt
+            }
+          }
+        }
+      }
+    `
   });
-  
+
   const stats = readingTime(data.articles.data[0].attributes.content);
   return { props: { article: data.articles.data[0], readingTime: stats }, revalidate: 1 };
 }
@@ -113,29 +113,35 @@ export async function getStaticPaths() {
     uri: `${server}/graphql`,
     cache: new InMemoryCache()
   });
-
-  const { data } = await client.query({
-    query: gql`
-			query {
-				articles {
-					data {
-						id
-						attributes{
-							slug
-						}
-					}
-				}
-			}
-		`
-  });
-  return {
-    paths: data.articles.data.map((article: any) => ({
-      params: {
-        slug: article.attributes.slug,
-      }
-    })),
-    fallback: false
-  };
+  try {
+    const { data } = await client.query({
+      query: gql`
+        query {
+          articles {
+            data {
+              id
+              attributes{
+                slug
+              }
+            }
+          }
+        }
+      `
+    });
+    return {
+      paths: data.articles.data.map((article: any) => ({
+        params: {
+          slug: article.attributes.slug,
+        }
+      })),
+      fallback: false
+    };
+  } catch (error) {
+    return {
+      paths: [{params: {slug: 'not-found'}}],
+      fallback: false
+    };
+  }
 }
 
 export default Post;

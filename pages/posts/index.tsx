@@ -134,8 +134,8 @@ export async function getStaticProps() {
     });
 
     const stats = data.articles.data.map((article: any) => readingTime(article.attributes.content))
-
-	return {props: {articles: data.articles, stats}, revalidate: 2}
+    
+	  return {props: {articles: data.articles, stats}, revalidate: 2}
   } catch (error) {
     return {props: {notFound: true}}
   }
