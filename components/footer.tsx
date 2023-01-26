@@ -9,7 +9,7 @@ const Footer = () => {
       zIndex={5}
       p={3}
       pt={4}
-      css={{ backdropFilter: 'blur(3px)' }}
+      css={{ backdropFilter: 'blur(1.5px)' }}
     >
       <Text fontSize={isLargerThan1280 ? 'md' : 'small'}><Box as={'span'} bg={'primary'}>By</Box> Roman Zhydyk
         2022</Text>

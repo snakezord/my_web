@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from "next/router";
 import Hamburger from 'hamburger-react';
 import { Show, Hide } from '@chakra-ui/react';
+import useOffSetTop from '../hooks/useOffSetTop';
 
 interface LinkI extends NextLinkProps {
   children: ReactNode;
@@ -98,14 +99,14 @@ const MediaMenu = () => {
 };
 
 export const Header = () => {
-  const { colorMode } = useColorMode();
+  const isOffset = useOffSetTop(100);
   return (
     <Box
       w="100%"
       position={'fixed'}
       zIndex={5}
       p={3}
-      css={{ backdropFilter: 'blur(1.5px)' }}
+      css={{ backdropFilter: isOffset ? 'blur(3px)' : 'blur(1.5px)'  }}
     >
       <Container maxW={'container.lg'}>
         <HStack>
