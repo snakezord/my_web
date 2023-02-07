@@ -12,6 +12,8 @@ export const Slider: FC<{ images: string[]; }> = ({ images }) => {
 
   return (
     <Box
+      minWidth='300px'
+      minHeight='230px'
       w={'100%'}
       h={'100%'}
       borderRadius={'10px'}

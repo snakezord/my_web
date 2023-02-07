@@ -78,7 +78,7 @@ const Posts = (props: any) => {
 						<Animate key={i} delay={i * 0.1}>
 							<GridItem
 								p={2}
-								css={{backdropFilter: 'blur(3px)'}}
+								css={{backdropFilter: 'blur(1.5px)'}}
 								borderRadius={'10px'}
 							>
 								<PostPreview article={article} readingStat={props.stats[i]}/>

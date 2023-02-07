@@ -14,8 +14,7 @@ const Whoami = () => {
           <b>Experienced</b> with the latest cutting-edge development tools and procedures. <br/>
           <b>Equipped</b> with a diverse and promising skill set. <br/>
           <b>Able</b> to effectively self-manage during independent projects and collaborate as part of a productive team. <br/>
-          <b>Looking for promising start-ups. </b><br/>
-          <b>Always learning.</b>
+          <b>Looking for </b>  promising start-ups. <b>Always learning. </b><br/> 
         </Text>
 			</Flex>
 			<CallToActionButton text={'Latest work'} href="/works"/>

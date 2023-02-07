@@ -12,7 +12,7 @@ const Footer = () => {
       css={{ backdropFilter: 'blur(1.5px)' }}
     >
       <Text fontSize={isLargerThan1280 ? 'md' : 'small'}><Box as={'span'} bg={'primary'}>By</Box> Roman Zhydyk
-        2022</Text>
+        2023</Text>
     </Box>
   );
 };

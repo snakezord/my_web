@@ -27,10 +27,10 @@ const Home: NextPage = () => {
           <Whoami />
         </Animate>
         <Animate delay={0.4}>
-          <Hobbies />
+          <Blog />
         </Animate>
         <Animate delay={0.6}>
-          <Blog />
+          <Hobbies />
         </Animate>
         <Animate delay={0.8}>
           <Social />
