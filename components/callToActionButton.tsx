@@ -7,7 +7,7 @@ const CallToActionButton: FC<{ text: string, href: string; }> = ({ text, href })
   return (
     <NextLink href={href} passHref>
       <Button
-        size={'sm'}
+        size={'md'}
         sx={{
           '&:hover': {
             bgColor: 'hover'

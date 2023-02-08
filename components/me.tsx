@@ -6,10 +6,12 @@ export const ChakraImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 });
 
+const PIC_SIZE = '200px'
+
 const Me: FC = () => {
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
   return (
-    <Stack direction={['column', 'row']} align={['center', 'center']} spacing={isLargerThan600 ? 12 : 4}>
+    <Stack direction={['column', 'row']} align='center' spacing={isLargerThan600 ? 8 : 4}>
       <VStack align='flex-start' spacing={1} width='1fr'>
         <Text fontSize={'4xl'} fontWeight={'bold'}>Roman Zhydyk</Text>
         <Stack direction={'row'} spacing={0} fontSize={isLargerThan600 ? 'md' : 'sm'}>
@@ -25,14 +27,14 @@ const Me: FC = () => {
         </Stack>
       </VStack>
       <Box
-        minWidth='160px'
-        w={'160px'}
-        h={'160px'}
+        minWidth={PIC_SIZE}
+        w={PIC_SIZE}
+        h={PIC_SIZE}
         borderWidth={1} borderStyle="solid" borderColor='#ffff' borderRadius={'full'}
         boxShadow='rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;'
         alignSelf={'center'}
       >
-        <ChakraImage src={'/me-christmass.png'} alt='me' borderRadius={'full'} width="160px" height="160px" />
+        <ChakraImage src={'/me-christmass.png'} alt='me' borderRadius={'full'} width={PIC_SIZE} height={PIC_SIZE} />
       </Box>
     </Stack>
   );

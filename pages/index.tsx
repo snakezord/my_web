@@ -14,9 +14,8 @@ const Home: NextPage = () => {
     <>
       <Seo
         metaTitle={"Roman Zhydyk's website & blog"}
-        metaDescription={"Roman Zhydyk's personal website & blog. " +
-          "Roman is a software engineer with a diverse skill-set. " +
-          "Like a real man, he constantly seeks improvement—both physically & mentally."
+        metaDescription={"Roman Zhydyk personal website & blog. " +
+          "A software engineer who can build anything. "
         }
       />
       <VStack spacing={isLargerThan600 ? 12 : 6} align={'flex-start'}>
