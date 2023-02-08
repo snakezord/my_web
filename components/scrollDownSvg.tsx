@@ -10,7 +10,7 @@ const ScrollDownSvg = () => {
   useEffect(() => {
     setHasScrollBar((
       document.body.clientHeight > window.innerHeight)
-      && ((document.body.clientHeight - window.innerHeight - scrollY) > 25)
+      && ((document.body.clientHeight - window.innerHeight - scrollY) > 45)
     );
     const handleScroll = () => {
       setScrollY(window.scrollY);

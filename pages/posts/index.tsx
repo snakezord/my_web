@@ -23,7 +23,7 @@ const PostPreview: FC<{ article: any, readingStat: any}> = ({article, readingSta
 				</NextLink>
 				<HStack spacing={3} align={'center'} fontSize={'x-small'} color={'GrayText'}>
 					<Text>
-						<Moment format="MMM D, Y">{article.attributes.createdAt}</Moment>
+						<Moment format="MMM D, Y">{article.attributes.date}</Moment>
 					</Text>
 					<Text>
 						{readingStat.text}
@@ -101,7 +101,7 @@ export async function getStaticProps() {
     const {data} = await client.query({
       query: gql`
         query {
-          articles {
+          articles (sort: "date:desc"){
             data {
               id
               attributes{
@@ -126,6 +126,7 @@ export async function getStaticProps() {
                   }
                 }
                 createdAt
+                date
               }
             }
           }
