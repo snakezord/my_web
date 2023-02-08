@@ -6,8 +6,8 @@ import CallToActionButton from "./callToActionButton";
 const Whoami = () => {
 	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
-		<Flex direction={'column'} alignItems={'center'} gap={3}>
-			<Flex direction={'column'} gap={2}>
+		<Flex direction={'column'} alignItems={'center'} gap={3} mt={-4}>
+			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>
         <Title title={'whoami'} />
 				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>
           <b>High-performance</b> full-stack software engineer with an entrepreneurial mindset. <br/>

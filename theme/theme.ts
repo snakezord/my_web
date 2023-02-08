@@ -5,15 +5,17 @@ const dark = {
 	brand: {
 		100: '#022C43',
 		200: '#053F5E40',
-		300: '#FFD700',
+		300: '#EDE8E4',
+		400: '#053F5E99',
 	},
 };
 
 const light = {
 	brand: {
-		100: '#F0ECE2',
+		100: '#EDE8E4',
 		200: '#DFD3C340',
     300: '#022C43',
+		400: '#DFD3C399',
 	},
 };
 
@@ -49,9 +51,12 @@ const theme = extendTheme({
   colors: {
 		light,
     dark,
-    hover: '#FFF900',
+    hover: {
+      dark: '#354259',
+      light: '#EEE3CB'
+    },
 		primary: '#F9248FB3',
-		secondary: '#FFD700',
+		secondary: '#C98474',
 	},
 });
 

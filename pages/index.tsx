@@ -13,25 +13,23 @@ const Home: NextPage = () => {
   return (
     <>
       <Seo
-        metaTitle={"Roman Zhydyk's website & blog"}
-        metaDescription={"Roman Zhydyk personal website & blog. " +
-          "A software engineer who can build anything. "
-        }
+        metaTitle={"Roman Zhydyk's personal website & blog"}
+        metaDescription={"A software engineer who can build anything. "}
       />
-      <VStack spacing={isLargerThan600 ? 12 : 6} align={'flex-start'}>
+      <VStack spacing={isLargerThan600 ? 14 : 6} align={'flex-start'}>
         <Animate>
           <Me />
         </Animate>
-        <Animate delay={0.2}>
+        <Animate delay={0.15}>
           <Whoami />
         </Animate>
-        <Animate delay={0.4}>
+        <Animate delay={0.3}>
           <Blog />
         </Animate>
-        <Animate delay={0.6}>
+        <Animate delay={0.15}>
           <Hobbies />
         </Animate>
-        <Animate delay={0.8}>
+        <Animate delay={0.3}>
           <Social />
         </Animate>
       </VStack>

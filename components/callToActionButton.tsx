@@ -4,16 +4,22 @@ import { FC } from "react";
 import NextLink from "next/link";
 
 const CallToActionButton: FC<{ text: string, href: string; }> = ({ text, href }) => {
+  const { colorMode } = useColorMode();
   return (
     <NextLink href={href} passHref>
       <Button
         size={'md'}
+        fontSize='1rem'
+        p={5}
         sx={{
           '&:hover': {
-            bgColor: 'hover'
-          }
+            bgColor: `hover.${colorMode === 'dark' ? 'light' : 'dark'}`,
+            color: colorMode === 'dark' ? 'black' : 'white'
+          },
+          bgColor: `${colorMode}.brand.400`,
+          border: `2px solid ${colorMode === 'dark' ? '#354259' : '#EEE3CB'}`
         }}
-        bg={'secondary'} color={'black'} mt={4} rightIcon={<MdKeyboardArrowRight />}>
+        mt={4} rightIcon={<MdKeyboardArrowRight />}>
         {text}
       </Button>
     </NextLink>

@@ -1,4 +1,4 @@
-import {GridItem, VStack, Text, Box, Stack, useMediaQuery, HStack} from "@chakra-ui/react";
+import {GridItem, VStack, Text, Box, Stack, useMediaQuery, HStack, useColorMode, Show} from "@chakra-ui/react";
 import {ApolloClient, gql, InMemoryCache} from "@apollo/client";
 import {getImageUrl, server} from "../../config";
 import {ChakraImage} from "../../components/me";
@@ -14,46 +14,61 @@ const PostPreview: FC<{ article: any, readingStat: any}> = ({article, readingSta
 
 	return (
 		<Stack direction={['column-reverse', 'row']} align={'stretch'} justifyContent={'space-between'}>
-			<VStack px={2} align={'flex-start'} justifyContent={'center'} w={isLargerThan600 ? '70%' : '100%'}>
+			<VStack px={2} align={'flex-start'} justifyContent={'space-around'} w={isLargerThan600 ? '70%' : '100%'}>
 				<NextLink href={`/posts/${article.attributes.slug}`} passHref>
 					<Text _hover={{cursor: 'pointer'}} fontSize={'md'} fontWeight={'bold'}>{article.attributes.title}</Text>
 				</NextLink>
 				<NextLink href={`/posts/${article.attributes.slug}`} passHref>
 					<Text _hover={{cursor: 'pointer'}} noOfLines={4}>{article.attributes.description}</Text>
-				</NextLink>
-				<HStack spacing={3} align={'center'} fontSize={'x-small'} color={'GrayText'}>
-					<Text>
-						<Moment format="MMM D, Y">{article.attributes.date}</Moment>
-					</Text>
-					<Text>
-						{readingStat.text}
-					</Text>
-					<Text casing={'capitalize'}>
-						{article.attributes.category.data.attributes.name}
-					</Text>
-				</HStack>
+        </NextLink>
+        <Show above='sm'>
+          <HStack spacing={3} align={'center'} fontSize={'x-small'} color={'GrayText'}>
+            <Text>
+              <Moment format="MMM D, Y">{article.attributes.date}</Moment>
+            </Text>
+            <Text>
+              {readingStat.text}
+            </Text>
+            <Text casing={'capitalize'}>
+              {article.attributes.category.data.attributes.name}
+            </Text>
+          </HStack>
+        </Show>
 			</VStack>
-			<Box w={isLargerThan600 ? '30%' : '100%'} h={'100%'}>
+			<Box w={isLargerThan600 ? '40%' : '100%'} h={'100%'}>
 				<NextLink href={`/posts/${article.attributes.slug}`} passHref>
-					<Box borderRadius={'10px'}>
+					<Box borderRadius={'10px'} >
 						<ChakraImage
 							src={getImageUrl(article.attributes.image.data.attributes.url)}
 							alt={article.attributes.image.data.attributes.alternativeText}
-							width={'300px'}
-							height={'200px'}
+							width={'400px'}
+              height={'280px'}
 							borderRadius={'10px'}
 							_hover={{cursor: 'pointer'}}
 						/>
 					</Box>
 				</NextLink>
-			</Box>
+      </Box>
+      <Show below='sm'>
+        <HStack spacing={3} align={'center'} fontSize={'x-small'} color={'GrayText'}>
+            <Text>
+              <Moment format="MMM D, Y">{article.attributes.date}</Moment>
+            </Text>
+            <Text>
+              {readingStat.text}
+            </Text>
+            <Text casing={'capitalize'}>
+              {article.attributes.category.data.attributes.name}
+            </Text>
+          </HStack>
+      </Show>
 		</Stack>
 	)
 }
 
 const Posts = (props: any) => {
   const { notFound } = props;
-  
+  const { colorMode } = useColorMode();
   if (notFound) return (
     <>
 			<Seo
@@ -75,10 +90,11 @@ const Posts = (props: any) => {
 			<ContentLayout title={'Latest Posts'}>
 				{props.articles.data.length === 0 ? <Text>No posts yet...</Text>
 					: props.articles.data.map((article: any, i: number) => (
-						<Animate key={i} delay={i * 0.1}>
+						<Animate key={i} delay={i * 0.15}>
 							<GridItem
 								p={2}
-								css={{backdropFilter: 'blur(1.5px)'}}
+                bg={`${colorMode}.brand.200`}
+								css={{backdropFilter: 'blur(1.5px)', border: `1px solid ${colorMode === 'dark' ? '#354259' : '#EEE3CB'}`}}
 								borderRadius={'10px'}
 							>
 								<PostPreview article={article} readingStat={props.stats[i]}/>

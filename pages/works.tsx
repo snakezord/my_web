@@ -27,7 +27,7 @@ import { server } from "../config";
 const Description: FC<{ description: string; }> = ({ description }) => {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
   return (
-    <VStack align={"flex-start"} borderRadius={"5px"} p={2}>
+    <VStack align={"flex-start"} borderRadius={"5px"} px={2}>
       <Text fontWeight={"bold"} fontSize={isLargerThan600 ? "md" : "sm"}>
         Description
       </Text>
@@ -39,7 +39,7 @@ const Description: FC<{ description: string; }> = ({ description }) => {
 const Achievements: FC<{ achievements: string[]; }> = ({ achievements }) => {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
   return (
-    <VStack align={"flex-start"} borderRadius={"5px"} p={2}>
+    <VStack align={"flex-start"} borderRadius={"5px"} px={2}>
       <Text fontWeight={"bold"} fontSize={isLargerThan600 ? "md" : "sm"}>
         Achievements
       </Text>
@@ -59,7 +59,7 @@ const UsedStack: FC<{ stack: string[]; }> = ({ stack }) => {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
   const { colorMode } = useColorMode();
   return (
-    <VStack align={"flex-start"} borderRadius={"5px"} pt={2} px={2}>
+    <VStack align={"flex-start"} borderRadius={"5px"} px={2}>
       <Text fontWeight={"bold"} fontSize={isLargerThan600 ? "md" : "sm"}>
         Stack
       </Text>
@@ -89,12 +89,11 @@ const Work: FC<WorkI> = ({
 }) => {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
   return (
-    <VStack spacing={3} alignItems={"stretch"} p={3} position={"relative"}>
+    <VStack spacing={2} alignItems={"stretch"} p={3} position={"relative"}>
       <HStack
         align={"center"}
         justifyContent={"space-between"}
         borderRadius={"5px"}
-        p={2}
       >
         <Text fontSize={isLargerThan600 ? "lg" : "md"} fontWeight={"bold"}>
           {title}
@@ -104,16 +103,8 @@ const Work: FC<WorkI> = ({
         </Box>
       </HStack>
       <Description description={description} />
-      <Stack
-        direction={["column-reverse", "row"]}
-        spacing={3}
-        align={"flex-start"}
-      >
-        <Box w={isLargerThan600 ? "50%" : "100%"}>
-          <Slider images={images.data.map(d => d.attributes.url)} />
-        </Box>
-        <Achievements achievements={details.achievements} />
-      </Stack>
+      <Slider images={images.data.map(d => d.attributes.url)} />
+      <Achievements achievements={details.achievements} />
       <UsedStack stack={details.stack} />
     </VStack>
   );
@@ -151,10 +142,10 @@ const Works = (props: WorksProps) => {
       />
       <ContentLayout title={"Latest Work"}>
         {data.map((work, i) => (
-          <Animate key={i} delay={i * 0.2}>
+          <Animate key={i} delay={0.15}>
             <GridItem
               bg={`${colorMode}.brand.200`}
-              css={{ backdropFilter: "blur(1px)" }}
+              css={{ backdropFilter: "blur(1.5px)", border: `1px solid ${colorMode === 'dark' ? '#354259' : '#EEE3CB'}` }}
               borderRadius={"12px"}
             >
               <Work {...work.attributes} />

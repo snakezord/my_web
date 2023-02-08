@@ -11,17 +11,17 @@ const PIC_SIZE = '200px'
 const Me: FC = () => {
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
   return (
-    <Stack direction={['column', 'row']} align='center' spacing={isLargerThan600 ? 8 : 4}>
+    <Stack direction={['column', 'row']} align='center' spacing={isLargerThan600 ? 2 : 3}>
       <VStack align='flex-start' spacing={1} width='1fr'>
         <Text fontSize={'4xl'} fontWeight={'bold'}>Roman Zhydyk</Text>
-        <Stack direction={'row'} spacing={0} fontSize={isLargerThan600 ? 'md' : 'sm'}>
-          <Text pr={2}>
+        <Stack direction={'row'} spacing={2} fontSize={isLargerThan600 ? 'md' : 'sm'}>
+          <Text >
             Software Engineer.
           </Text>
-          <Text pr={2}>
+          <Text>
             Crypto Enthusiast.
           </Text>
-          <Text pr={2}>
+          <Text>
             Truth Seeker.
           </Text>
         </Stack>

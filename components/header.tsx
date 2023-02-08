@@ -105,11 +105,11 @@ export const Header = () => {
       w="100%"
       position={'fixed'}
       zIndex={5}
-      p={3}
+      py={3}
       css={{ backdropFilter: isOffset ? 'blur(3px)' : 'blur(1.5px)'  }}
     >
       <Container maxW={'container.lg'}>
-        <HStack>
+        <HStack >
           <HStack>
             <motion.div
               whileHover={{
@@ -126,9 +126,10 @@ export const Header = () => {
                 </Text>
               </LinkItem>
             </motion.div>
-            <MediaMenu />
           </HStack>
-          <Spacer />
+          <Spacer display={['none']}/>
+          <MediaMenu />
+          <Spacer display={['none', 'none', 'block']} />
           <ThemeButton />
         </HStack>
       </Container>

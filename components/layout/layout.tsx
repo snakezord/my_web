@@ -29,8 +29,8 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       colEnd: 13
     }
     : {
-      colStart: 3,
-      colEnd: 8
+      colStart: 1,
+      colEnd: 9
     };
   const posPropsGrid2 = isSmallerThan1280
     ? {
@@ -40,7 +40,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       h: '300px'
     }
     : {
-      colStart: 8,
+      colStart: 9,
       colEnd: 12,
       h: '55vh',
       position: 'fixed',
@@ -56,7 +56,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Box
       sx={{
-        backgroundColor: '#EDE8E4',
+        backgroundColor: `${colorMode}.brand.100`,
         opacity: 1,
         backgroundImage: `repeating-linear-gradient( 45deg, ${color2}, ${color2} 2px, ${color1} 2px, ${color1} 10px )`
       }}
@@ -65,30 +65,30 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <Head>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Header />
       <NextNProgress height={3} color={'#F9248FB3'} />
       <ScrollDownSvg />
-      <Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'} pb={'2%'}>
-        <GridItem
-          {...posPropsGrid1}
-          pt={'2%'}
-          zIndex={1}
-        >
-          <Container maxW={'container.md'}>
+      <Header />
+      <Container maxW={'container.lg'}>
+        <Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'} pb={'2%'}>
+          <GridItem
+            {...posPropsGrid1}
+            pt={'2%'}
+            zIndex={1}
+          >
             {children}
-          </Container>
-        </GridItem>
-        {/*@ts-ignore*/}
-        <GridItem
-          {...posPropsGrid2}
-          display={'flex'} alignItems={'center'} justifyContent={'center'}
-          css={{ cursor: 'grab' }}
-          zIndex={0}
-        >
-          <Scene />
-        </GridItem>
-      </Grid>
-      <Spacer />
+          </GridItem>
+          {/*@ts-ignore*/}
+          <GridItem
+            {...posPropsGrid2}
+            display={'flex'} alignItems={'center'} justifyContent={'center'}
+            css={{ cursor: 'grab' }}
+            zIndex={0}
+          >
+            <Scene />
+          </GridItem>
+        </Grid>
+        <Spacer />
+      </Container>
       <Footer />
     </Box>
   );

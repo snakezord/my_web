@@ -6,7 +6,7 @@ const Blog = () => {
 	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
-			<Flex direction={'column'} gap={2}>
+			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>
 				<Title title={'blog'}/>
 				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>
           From time to time, Roman likes to write about exciting stuff. <br/>

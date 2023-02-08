@@ -1,4 +1,4 @@
-import {Box, Flex, HStack, Link, Tooltip} from "@chakra-ui/react";
+import {Box, Flex, HStack, Link, Tooltip, useColorMode} from "@chakra-ui/react";
 import {Title} from "./title";
 import {
 	FaGithub,
@@ -38,12 +38,13 @@ export const SocialLink: FC<SocialLinkProps> = (
 		icon,
 		w = '40px',
 		h = '40px'
-	}) => {
+  }) => {
+  const { colorMode } = useColorMode();
 	const Icon = SocialIcon[name] || icon;
 	return (
 		<Link href={href} target={'_blank'} rel="noreferrer">
-			<Tooltip label={name} bg={'secondary'} color={'black'}>
-				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{color: 'secondary'}}>
+			<Tooltip label={name} bg={`hover.${colorMode === 'dark' ? 'light' : 'dark'}`} color={colorMode === 'dark' ? 'black' : 'white'}>
+				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{color: `hover.${colorMode === 'dark' ? 'light' : 'dark'}`}}>
 					<Icon size={'100%'}/>
 				</Box>
 			</Tooltip>
@@ -63,7 +64,7 @@ const SocialLinks = () => {
 
 export const Social = () => {
 	return (
-		<Flex direction={'column'} gap={2}>
+		<Flex direction={'column'} pb={[2, 8]} gap={2}>
 			<Title title={'connect'}/>
 			<SocialLinks/>
 		</Flex>
