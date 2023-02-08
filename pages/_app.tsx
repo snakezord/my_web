@@ -5,17 +5,20 @@ import Layout from "../components/layout/layout";
 import '../theme/global.css';
 import Fonts from "../components/fonts";
 import GoogleAnalytics from "../lib/googleAnalytics";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({Component, pageProps}: AppProps) {
 	return (
-		<>
-			<GoogleAnalytics/>
+    <>
 			<Fonts/>
 			<ChakraProvider theme={theme}>
 				<Layout>
 					<Component {...pageProps} />
 				</Layout>
-			</ChakraProvider>
+      </ChakraProvider>
+      
+      <Analytics />
+			<GoogleAnalytics/>
 		</>
 	);
 }
