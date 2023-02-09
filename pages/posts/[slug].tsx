@@ -1,6 +1,6 @@
 import { ApolloClient, gql, InMemoryCache } from "@apollo/client";
 import { getImageUrl, server } from "../../config";
-import { AspectRatio, Box, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import { AspectRatio, Box, Heading, HStack, Text, useColorMode, VStack } from "@chakra-ui/react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -10,6 +10,7 @@ import Moment from "react-moment";
 import Seo from "../../components/seo";
 
 const Post = (props: any) => {
+  const { colorMode } = useColorMode();
   return (
     <>
       <Seo
@@ -49,7 +50,7 @@ const Post = (props: any) => {
                     <iframe {...props} />
                   </AspectRatio>;
                 },
-                a: (props) => <a {...props} contentEditable="false" target={'_blank'} rel="noreferrer" style={{ background: '#FFD700', color: 'black' }} />
+                a: (props) => <a {...props} contentEditable="false" target={'_blank'} rel="noreferrer" style={{ background: colorMode === 'dark' ? '#FFD70099' : '#FFD700B3', color: 'black', borderRadius: '2px' }} />
               })}
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}

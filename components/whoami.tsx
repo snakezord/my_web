@@ -1,31 +1,71 @@
-import {Flex, Text, useMediaQuery} from "@chakra-ui/react";
+import { Fragment } from "react";
+import { Flex, Text } from "@chakra-ui/react";
+//
 import {Title} from "./title";
-import ReactCountryFlag from "react-country-flag"
 import CallToActionButton from "./callToActionButton";
+import { CustomLink } from "./customLink";
 
 const Whoami = () => {
-	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3} >
 			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>
         <Title title={'Work'} />
         <Text fontSize={'sm'}>
-          Greetings, I am Roman Zhydyk, a seasoned software engineer with an entrepreneurial mindset, exceptional communication skills, and a passion for innovation. <br />
-          My extensive experience in the industry, combined with my track record as an experienced investor with significant wins and losses, sets me apart in my field.<br />
-          I am fearless in taking substantial risks and have a proven track record of coming out on top. <br />
-          I have a passion for software development, honed over several years of delivering innovative solutions to startups, and a deep understanding of Agile methodologies and the unique challenges that startups face in the fast-paced and constantly evolving startup ecosystem. <br />
-          My technical skillset is broad, with proficiency in a wide range of technologies, including [list technologies you have experience with]. <br />
-          In addition to my technical skills, I am an excellent communicator, able to articulate complex ideas and solutions clearly and concisely. <br />
-          I have a knack for collaborating with cross-functional teams and stakeholders, ensuring everyone is on the same page, and working towards a common goal. <br />
-          This, combined with my entrepreneurial mindset and passion for following entrepreneurs and staying up-to-date with the latest developments in the startup world, allows me to bring a unique perspective to any project I work on. <br />
-          I am now on the lookout for like-minded individuals to make an impact in the industry. <br />
-          I am eager to bring my skills and expertise to a new venture and contribute to its success. <br />
-          My portfolio [link to your portfolio] showcases my past achievements, and I am confident that I can also bring value to you. <br />
-          I would be honored to discuss your project & ideas and explore how I can help bring your vision to life. <br />
+          I am a seasoned <b>software engineer</b> with a passion for innovation and entrepreneurship.<br/>
+          My technical expertise mainly spans<ListOfTechnologies />. <br/>
+          I excel at communicating complex ideas and working with cross-functional teams.<br />
+          I bring a unique perspective to any project, driven by my deep understanding of the startup ecosystem. 
+          I am eager to get my skills and passion to a new venture and contribute to its success.
+          My
+          <CustomLink href={'/works'} target={'_blank'} rel="noreferrer" >
+            portfolio
+          </CustomLink>
+          showcases my achievements, and I am confident I can bring value to you. 
+          Let&apos;s discuss your project and explore how I can help bring your vision to life!
         </Text>
 			</Flex>
 			<CallToActionButton text={'Latest work'} href="/works"/>
 		</Flex>
 	)
+}
+
+type Tech = {
+  title: string;
+  link: string;
+}
+
+const TECH: Tech[] = [
+  {
+    title: 'NextJS / React ',
+    link: 'https://nextjs.org/'
+  },
+  {
+    title: 'NodeJS',
+    link: 'https://nodejs.org/en/about/'
+  },
+  {
+    title: 'GCP',
+    link: 'https://cloud.google.com/'
+  },
+  {
+    title: 'AWS',
+    link: 'https://aws.amazon.com/'
+  },
+]
+
+const ListOfTechnologies = () => {
+  return (
+    <Text as='span'>
+      {
+        TECH.map((t, i) => (
+          <Fragment key={i}>
+            <CustomLink href={t.link} target={'_blank'} rel="noreferrer">{t.title}</CustomLink>
+            {i !== TECH.length - 1 && <Text as='span' ml={-1}>,</Text>}
+            {i === TECH.length - 2 && <Text as='span'> and</Text>}
+          </Fragment>
+        ))
+      }
+    </Text>
+  )
 }
 export default Whoami;

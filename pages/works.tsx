@@ -5,7 +5,6 @@ import {
   List,
   ListIcon,
   ListItem,
-  Stack,
   Tag,
   Text,
   useColorMode,
@@ -99,7 +98,7 @@ const Work: FC<WorkI> = ({
           {title}
         </Text>
         <Box>
-          {url && <SocialLink name={"website"} href={url} w="32px" h="32px" />}
+          {url && <SocialLink name={"Website"} href={url} w="32px" h="32px" />}
         </Box>
       </HStack>
       <Description description={description} />

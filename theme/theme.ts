@@ -55,8 +55,8 @@ const theme = extendTheme({
       dark: '#354259',
       light: '#EEE3CB'
     },
-		primary: '#F9248FB3',
-		secondary: '#C98474',
+		primary: '#F9248F99',
+		secondary: '#FFD700',
 	},
 });
 

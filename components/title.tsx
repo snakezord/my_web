@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 export const Title: FC<{ title: string, fontSize?: string, fontWeight?: string, h?: string; }> = (
   {
@@ -9,7 +9,6 @@ export const Title: FC<{ title: string, fontSize?: string, fontWeight?: string, 
     h = '4px'
   }
 ) => {
-  const { colorMode } = useColorMode();
   return (
     <Flex direction={'column'} alignItems={'start'}>
       <Text fontSize={fontSize} fontWeight={fontWeight}>

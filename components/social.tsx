@@ -1,26 +1,26 @@
-import {Box, Flex, HStack, Link, Tooltip, useColorMode} from "@chakra-ui/react";
-import {Title} from "./title";
+import {FC} from "react";
+import { Box, Flex, HStack, Link, Tooltip, useColorModeValue } from "@chakra-ui/react";
+//
+import {FcDocument} from "react-icons/fc";
+import {IconType} from "react-icons";
 import {
 	FaGithub,
 	FaLinkedinIn,
 	FaTwitter,
 	FaExternalLinkAlt
 } from "react-icons/fa";
-import {FcDocument} from "react-icons/fc";
-import {IconType} from "react-icons";
-import {FC} from "react";
 
-type SocialLinks = 'github' | 'linkedIn' | 'twitter' | 'resume' | 'website' | string;
+type SocialLinks = 'github' | 'Linked In' | 'Twitter' | 'Resume' | 'Website' | string;
 type NameToIcon = {
 	[key in SocialLinks]: IconType;
 }
 
 const SocialIcon: NameToIcon = {
-	github: FaGithub,
-	linkedIn: FaLinkedinIn,
-	twitter: FaTwitter,
-	resume: FcDocument,
-	website: FaExternalLinkAlt
+	Github: FaGithub,
+	"Linked In": FaLinkedinIn,
+	Twitter: FaTwitter,
+	Resume: FcDocument,
+	Website: FaExternalLinkAlt
 }
 
 interface SocialLinkProps {
@@ -39,12 +39,11 @@ export const SocialLink: FC<SocialLinkProps> = (
 		w = '32px',
 		h = '32px'
   }) => {
-  const { colorMode } = useColorMode();
 	const Icon = SocialIcon[name] || icon;
 	return (
 		<Link href={href} target={'_blank'} rel="noreferrer">
-			<Tooltip label={name} hasArrow placement="top" bg={`hover.${colorMode === 'dark' ? 'light' : 'dark'}`} color={colorMode === 'dark' ? 'black' : 'white'}>
-				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{color: `hover.${colorMode === 'dark' ? 'light' : 'dark'}`}}>
+			<Tooltip label={name} hasArrow placement="top" bg={'#FFD700'} color={'black'}>
+        <Box w={w} h={h} borderRadius={'100%'} p={'6px'} sx={{ bg: useColorModeValue('#FFD70099', '#FFD700B3'), color:  'black'}} _hover={{color: `hover.dark`}}>
 					<Icon size={'100%'}/>
 				</Box>
 			</Tooltip>
@@ -54,10 +53,10 @@ export const SocialLink: FC<SocialLinkProps> = (
 
 const SocialLinks = () => {
 	return (
-		<HStack spacing={.5}>
-			<SocialLink name={'github'} href={'https://github.com/snakezord'}/>
-			<SocialLink name={'linkedIn'} href={'https://www.linkedin.com/in/roman-zhydyk-5a3374203'}/>
-			<SocialLink name={'twitter'} href={'https://twitter.com/2_comma_club'}/>
+		<HStack spacing={1}>
+			<SocialLink name={'Twitter'} href={'https://twitter.com/2_comma_club'}/>
+			<SocialLink name={'Github'} href={'https://github.com/snakezord'}/>
+			<SocialLink name={'Linked In'} href={'https://www.linkedin.com/in/roman-zhydyk-5a3374203'}/>
 		</HStack>
 	)
 }

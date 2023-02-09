@@ -1,4 +1,4 @@
-import { Box, useColorModeValue, useMediaQuery, Text } from "@chakra-ui/react";
+import { Box, useMediaQuery, Text } from "@chakra-ui/react";
 
 const Footer = () => {
   const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)');

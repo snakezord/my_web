@@ -1,8 +1,8 @@
-import { VStack, useMediaQuery, Stack, Text, Link } from "@chakra-ui/react";
+import { VStack, Stack, Text } from "@chakra-ui/react";
 import { Title } from "./title";
+import { CustomLink } from "./customLink";
 
 const Hobbies = () => {
-  const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
   return (
     <VStack spacing={2} align={'flex-start'}>
       <Title title={'Hobbies'} />
@@ -10,13 +10,13 @@ const Hobbies = () => {
         <Text>
           Waking up early to work out is like giving my body a shot of adrenaline. <br/>
           When it comes to investing, I&apos;m a thrill-seeker. <br/>
-          My portfolio is a wild ride of crypto-currencies, with a lot of gains & losses. It&apos;s like a rollercoaster of emotions! <br/>
+          My portfolio is a wide range of crypto-currencies, with many gains & but also, inevitably, many losses; I call them lessons. It&apos;s a rollercoaster of emotions!
           But hey, I&apos;ve got my eyes on the future and my ear to the ground, following the latest tech startups and news like a true entrepreneur. <br/>
-          And to fuel my obsession, I listen to a lot of podcasts & CEOs interviews specially recommending the
-          <Link mx={1} href={'https://www.allinpodcast.co/'} target={'_blank'} rel="noreferrer" style={{ background: '#FFD700', color: 'black' }}>
+          And to fuel my obsession, I listen to a lot of podcasts & CEOs interviews, specially recommending the
+          <CustomLink href={'https://www.allinpodcast.co/'} target={'_blank'} rel="noreferrer">
           ♠️ All In 
-          </Link>
-           podcast because when it comes to investing and life, <br/><b>I&apos;m All-In, baby!</b>
+          </CustomLink>
+          podcast, because when it comes to investing and life, <b>I&apos;m All-In!</b>
         </Text>
       </Stack>
     </VStack>

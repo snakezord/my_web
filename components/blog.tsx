@@ -1,9 +1,8 @@
-import {Flex, Text, useMediaQuery} from "@chakra-ui/react";
+import {Flex, Text } from "@chakra-ui/react";
 import {Title} from "./title";
 import CallToActionButton from "./callToActionButton";
 
 const Blog = () => {
-	const [isLargerThan600] = useMediaQuery('(min-width: 600px)')
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>

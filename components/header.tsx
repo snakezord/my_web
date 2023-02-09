@@ -4,7 +4,7 @@ import {
   Link,
   Text,
   Spacer,
-  Container, Menu, MenuButton, IconButton, MenuList, MenuItem, Box, Flex, useColorModeValue, useColorMode,
+  Container, Menu, MenuButton, IconButton, MenuList, MenuItem, Box, useColorModeValue,
 } from '@chakra-ui/react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FC, ReactNode, useState } from "react";
@@ -106,7 +106,9 @@ export const Header = () => {
       position={'fixed'}
       zIndex={5}
       py={3}
-      css={{ backdropFilter: isOffset ? 'blur(3px)' : 'blur(1.5px)'  }}
+      css={{
+        backdropFilter: isOffset ? 'blur(7px)' : 'blur(1.5px)',
+      }}
     >
       <Container maxW={'container.lg'}>
         <HStack >

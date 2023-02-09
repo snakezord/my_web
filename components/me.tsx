@@ -1,4 +1,4 @@
-import { Box, Text, chakra, Stack, VStack, useMediaQuery, HStack } from "@chakra-ui/react";
+import { Box, Text, chakra, Stack, VStack, useMediaQuery } from "@chakra-ui/react";
 import { FC } from "react";
 import Image from 'next/image';
 import { Social } from "./social";
@@ -15,7 +15,7 @@ const Me: FC = () => {
     <Stack direction={['column', 'row']} align={['flex-start', 'flex-end']} justifyContent='space-between' spacing={isLargerThan600 ? 2 : 4}>
       <VStack align='flex-start' spacing={1} width='1fr'>
         <Stack direction={'row'} alignItems={'center'} flexWrap='wrap'>
-          <Text fontSize={'3xl'} fontWeight={'bold'} mr={[0, 6]}>Roman Zhydyk</Text>
+          <Text fontSize={'3xl'} fontWeight={'bold'} mr={[0, 12]}>Roman Zhydyk</Text>
           <Social />
         </Stack>
         <Stack direction={'row'} spacing={2} fontSize={isLargerThan600 ? 'md' : 'smaller'}>

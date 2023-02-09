@@ -17,7 +17,7 @@ const CallToActionButton: FC<{ text: string, href: string; }> = ({ text, href })
             color: colorMode === 'dark' ? 'black' : 'white'
           },
           bgColor: `${colorMode}.brand.400`,
-          border: `2px solid ${colorMode === 'dark' ? '#354259' : '#EEE3CB'}`
+          border: `1px solid ${colorMode === 'dark' ? '#FFD70080' : '#FFD700CC'}`
         }}
         mt={4} rightIcon={<MdKeyboardArrowRight />}>
         {text}

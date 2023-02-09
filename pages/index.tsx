@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import { useMediaQuery, VStack } from '@chakra-ui/react';
 import Me from '../components/me';
 import Whoami from "../components/whoami";
-import { Social } from "../components/social";
 import Animate from "../components/animate";
 import Hobbies from "../components/hobbies";
 import Blog from "../components/blog";
