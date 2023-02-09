@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         metaTitle={"Roman Zhydyk's personal website & blog"}
         metaDescription={"A software engineer who can build anything. "}
       />
-      <VStack spacing={isLargerThan600 ? 14 : 6} align={'flex-start'}>
+      <VStack spacing={isLargerThan600 ? 14 : 6} mb={6} align={'flex-start'}>
         <Animate>
           <Me />
         </Animate>
@@ -26,11 +26,8 @@ const Home: NextPage = () => {
         <Animate delay={0.3}>
           <Blog />
         </Animate>
-        <Animate delay={0.15}>
+        <Animate delay={0.45}>
           <Hobbies />
-        </Animate>
-        <Animate delay={0.3}>
-          <Social />
         </Animate>
       </VStack>
     </>

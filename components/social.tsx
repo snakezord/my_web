@@ -36,14 +36,14 @@ export const SocialLink: FC<SocialLinkProps> = (
 		name,
 		href,
 		icon,
-		w = '40px',
-		h = '40px'
+		w = '35px',
+		h = '35px'
   }) => {
   const { colorMode } = useColorMode();
 	const Icon = SocialIcon[name] || icon;
 	return (
 		<Link href={href} target={'_blank'} rel="noreferrer">
-			<Tooltip label={name} bg={`hover.${colorMode === 'dark' ? 'light' : 'dark'}`} color={colorMode === 'dark' ? 'black' : 'white'}>
+			<Tooltip label={name} hasArrow placement="top" bg={`hover.${colorMode === 'dark' ? 'light' : 'dark'}`} color={colorMode === 'dark' ? 'black' : 'white'}>
 				<Box w={w} h={h} borderRadius={'100%'} p={1} _hover={{color: `hover.${colorMode === 'dark' ? 'light' : 'dark'}`}}>
 					<Icon size={'100%'}/>
 				</Box>
@@ -64,8 +64,8 @@ const SocialLinks = () => {
 
 export const Social = () => {
 	return (
-		<Flex direction={'column'} pb={[2, 8]} gap={2}>
-			<Title title={'connect'}/>
+		<Flex direction={'column'} >
+			{/* <Title title={'Connect'}/> */}
 			<SocialLinks/>
 		</Flex>
 	)

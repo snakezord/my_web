@@ -1,28 +1,26 @@
-import { Box, Text, chakra, Stack, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Text, chakra, Stack, VStack, useMediaQuery, HStack } from "@chakra-ui/react";
 import { FC } from "react";
 import Image from 'next/image';
+import { Social } from "./social";
 
 export const ChakraImage = chakra(Image, {
   shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
 });
 
-const PIC_SIZE = '200px'
+const PIC_SIZE = '170px'
 
 const Me: FC = () => {
   const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
   return (
-    <Stack direction={['column', 'row']} align='center' spacing={isLargerThan600 ? 2 : 3}>
+    <Stack direction={['column', 'row']} align={['flex-start', 'flex-end']} spacing={isLargerThan600 ? 2 : 4}>
       <VStack align='flex-start' spacing={1} width='1fr'>
-        <Text fontSize={'4xl'} fontWeight={'bold'}>Roman Zhydyk</Text>
-        <Stack direction={'row'} spacing={2} fontSize={isLargerThan600 ? 'md' : 'sm'}>
+        <Stack direction={'row'} alignItems={'center'} flexWrap='wrap'>
+          <Text fontSize={'3xl'} fontWeight={'bold'} mr={[0, 6]}>Roman Zhydyk</Text>
+          <Social />
+        </Stack>
+        <Stack direction={'row'} spacing={2} fontSize={isLargerThan600 ? 'md' : 'smaller'}>
           <Text >
-            Software Engineer.
-          </Text>
-          <Text>
-            Crypto Enthusiast.
-          </Text>
-          <Text>
-            Truth Seeker.
+            Software Engineer. Crypto Enthusiast. Truth Seeker.
           </Text>
         </Stack>
       </VStack>

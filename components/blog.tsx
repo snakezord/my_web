@@ -7,7 +7,7 @@ const Blog = () => {
 	return (
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>
-				<Title title={'blog'}/>
+				<Title title={'Blog'}/>
 				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>
           From time to time, Roman likes to write about exciting stuff. <br/>
           His interests can vary from tech to trading, economics to politics, and from workouts to diets & self-improvement.
