@@ -6,18 +6,17 @@ const Hobbies = () => {
   return (
     <VStack spacing={2} align={'flex-start'}>
       <Title title={'Hobbies'} />
-      <Stack direction={'column'} fontSize={isLargerThan600 ? 'md' : 'sm'}>
+      <Stack direction={'column'} fontSize={'sm'}>
         <Text>
-        🏋️‍♂️ I workout in the morning. I need that endorphins rush in my blood 🩸.
-        </Text>
-        <Text>
-        💵 I invest in markets. My portfolio is mainly cryptos. I have made 10k in a single trade 📈. Also, I have lost 50k in a single trade 📉.
-        </Text>
-        <Text>
-          💸 I am future angel investor. I follow latest tech startups and news daily. <br />
-          Recommended podcast <Link href={'https://www.allinpodcast.co/'} target={'_blank'} rel="noreferrer" style={{ background: '#FFD700', color: 'black' }}>
-          ♠️ All In
+          Waking up early to work out is like giving my body a shot of adrenaline. <br/>
+          When it comes to investing, I&apos;m a thrill-seeker. <br/>
+          My portfolio is a wild ride of crypto-currencies, with a lot of gains & losses. It&apos;s like a rollercoaster of emotions! <br/>
+          But hey, I&apos;ve got my eyes on the future and my ear to the ground, following the latest tech startups and news like a true entrepreneur. <br/>
+          And to fuel my obsession, I listen to a lot of podcasts & CEOs interviews specially recommending the
+          <Link mx={1} href={'https://www.allinpodcast.co/'} target={'_blank'} rel="noreferrer" style={{ background: '#FFD700', color: 'black' }}>
+          ♠️ All In 
           </Link>
+           podcast because when it comes to investing and life, <br/><b>I&apos;m All-In, baby!</b>
         </Text>
       </Stack>
     </VStack>

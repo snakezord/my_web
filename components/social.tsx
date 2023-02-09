@@ -36,8 +36,8 @@ export const SocialLink: FC<SocialLinkProps> = (
 		name,
 		href,
 		icon,
-		w = '35px',
-		h = '35px'
+		w = '32px',
+		h = '32px'
   }) => {
   const { colorMode } = useColorMode();
 	const Icon = SocialIcon[name] || icon;

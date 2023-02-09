@@ -8,9 +8,8 @@ const Blog = () => {
 		<Flex direction={'column'} alignItems={'center'} gap={3}>
 			<Flex direction={'column'} gap={2} alignSelf={'flex-start'}>
 				<Title title={'Blog'}/>
-				<Text fontSize={isLargerThan600 ? 'md' : 'sm'}>
-          From time to time, Roman likes to write about exciting stuff. <br/>
-          His interests can vary from tech to trading, economics to politics, and from workouts to diets & self-improvement.
+				<Text fontSize={'sm'}>
+        Occasionally, I indulge in crafting insightful pieces on a diverse range of subjects, encompassing the spheres of technology, finance, economics, politics, health and wellness, and personal development.
 				</Text>
 			</Flex>
 			<CallToActionButton text={'Latest posts'} href="/posts"/>
