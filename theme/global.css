@@ -1,88 +1,94 @@
 .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: #F9248FB3;
+  display: inline-block;
+  position: relative;
+  color: #f9248fb3;
 }
 
 .hover-underline-animation:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    background-color: #F9248FB3;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #f9248fb3;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
 
 .hover-underline-animation:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .hover-underline-animation.active:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .Typewriter__wrapper {
-    background: rgba(249, 36, 143, 0.3);
-    font-size: x-large;
+  background: rgba(249, 36, 143, 0.3);
+  font-size: x-large;
+}
+
+@media only screen and (max-width: 600px) {
+  .Typewriter__wrapper {
+    font-size: large;
+  }
 }
 
 .Typewriter__cursor {
-    color: #F9248F;
-    font-size: xx-large;
-    font-weight: bold;
+  color: #f9248f;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 .image-gallery img {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 /* Scroll Down */
 
 .scrolldown-wrapper {
-    left: 50%;
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+  left: 50%;
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .scrolldown {
-    border-radius: 30px;
-    height: 46px;
-    margin: 0 auto 8px;
-    text-align: -webkit-center;
-    width: 30px;
+  border-radius: 30px;
+  height: 46px;
+  margin: 0 auto 8px;
+  text-align: -webkit-center;
+  width: 30px;
 }
 
 .scrolldown-p1,
 .scrolldown-p2 {
-    animation-duration: 1.5s;
-    animation-name: scrolldown;
-    animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  animation-name: scrolldown;
+  animation-iteration-count: infinite;
 }
 
 .scrolldown-p2 {
-    animation-delay: .75s;
+  animation-delay: 0.75s;
 }
 
 @keyframes scrolldown {
-    0% {
-        opacity: 0;
-        transform: translate(0, -8px);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(0, 8px);
-    }
+  0% {
+    opacity: 0;
+    transform: translate(0, -8px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 8px);
+  }
 }

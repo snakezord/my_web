@@ -20,8 +20,8 @@ const Post = (props: any) => {
         article
       />
       <VStack align={'stretch'} spacing={3}>
-        <VStack align={'flex-start'} pb={5}>
-          <Text color={'GrayText'} casing={'capitalize'}>
+        <VStack align={'flex-start'} pb={5} backdropFilter={['blur(1.5px)', 'none']}>
+          <Text color={'GrayText'} casing={'capitalize'} >
             {props.article.attributes.category.data.attributes.name}
           </Text>
           <HStack>
@@ -50,7 +50,7 @@ const Post = (props: any) => {
                     <iframe {...props} />
                   </AspectRatio>;
                 },
-                a: (props) => <a {...props} contentEditable="false" target={'_blank'} rel="noreferrer" style={{ background: colorMode === 'dark' ? '#FFD70099' : '#FFD700B3', color: 'black', borderRadius: '2px' }} />
+                a: (props) => <a {...props} target={'_blank'} rel="noreferrer" style={{ background: '#FFD700B3', color: 'black', borderRadius: '2px' }} />
               })}
             rehypePlugins={[rehypeRaw]}
             remarkPlugins={[remarkGfm]}

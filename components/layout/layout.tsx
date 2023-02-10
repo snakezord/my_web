@@ -30,7 +30,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
     }
     : {
       colStart: 1,
-      colEnd: 9
+      colEnd: 9,
     };
   const posPropsGrid2 = isSmallerThan1280
     ? {
@@ -69,10 +69,11 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
       <ScrollDownSvg />
       <Header />
       <Container maxW={'container.lg'}>
-        <Grid templateColumns={'repeat(12, 1fr)'} pt={'5%'} pb={'2%'}>
+        <Grid templateColumns={'repeat(12, 1fr)'} pt={[0, '5%']} pb={'2%'}>
           <GridItem
             {...posPropsGrid1}
-            pt={'2%'}
+            pt={[0, '2%']}
+            mt={['-80px', 0]}
             zIndex={1}
           >
             {children}
@@ -81,6 +82,7 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
           <GridItem
             {...posPropsGrid2}
             display={'flex'} alignItems={'center'} justifyContent={'center'}
+            mt={['-35px', 0]}
             css={{ cursor: 'grab' }}
             zIndex={0}
           >

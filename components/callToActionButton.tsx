@@ -14,12 +14,15 @@ const CallToActionButton: FC<{ text: string, href: string; }> = ({ text, href })
         sx={{
           '&:hover': {
             bgColor: `hover.${colorMode === 'dark' ? 'light' : 'dark'}`,
-            color: colorMode === 'dark' ? 'black' : 'white'
+            color: colorMode === 'dark' ? 'black' : 'white',
+            borderColor: '#FFD700'
           },
           bgColor: `${colorMode}.brand.400`,
           border: `1px solid ${colorMode === 'dark' ? '#FFD70080' : '#FFD700CC'}`
         }}
-        mt={4} rightIcon={<MdKeyboardArrowRight />}>
+        mt={4}
+        rightIcon={<MdKeyboardArrowRight />}
+      >
         {text}
       </Button>
     </NextLink>

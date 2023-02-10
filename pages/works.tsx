@@ -170,7 +170,7 @@ export async function getStaticProps() {
     const { data } = await client.query<{works: WorksData}>({
       query: gql`
         query {
-          works {
+          works (sort: "date:desc"){
             data {
               attributes {
                 images {

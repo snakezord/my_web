@@ -47,7 +47,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string; }> 
       <Html center position={[-1.1, isLargerThan1280 ? 1 : -1, 0]} id={undefined}>
         <div style={{ minWidth: '250px', marginLeft: '25%' }}>
           {asPath === '/' && <Typewriter
-            options={{ delay: 40 }}
+            options={{ delay: 25 }}
             onInit={(typewriter: TypewriterClass) => {
               typewriter
                 .typeString('Greetings visitor!')
@@ -56,7 +56,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string; }> 
             }}
           />}
           {asPath === '/works' && <Typewriter
-            options={{ delay: 40 }}
+            options={{ delay: 20 }}
             onInit={(typewriter: TypewriterClass) => {
               typewriter
                 .typeString('Check out my latest work!')
@@ -65,7 +65,7 @@ const Model: FC<{ scene: Group, animations: AnimationClip[], asPath: string; }> 
             }}
           />}
           {asPath === '/posts' && <Typewriter
-            options={{ delay: 40 }}
+            options={{ delay: 20 }}
             onInit={(typewriter: TypewriterClass) => {
               typewriter
                 .typeString('Check out my latest posts!')

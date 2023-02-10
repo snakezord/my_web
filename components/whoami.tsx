@@ -17,6 +17,10 @@ const Whoami = () => {
           I bring a unique perspective to any project, driven by my deep understanding of the startup ecosystem. 
           I am eager to get my skills and passion to a new venture and contribute to its success.
           My
+          <CustomLink href={'https://romanzhydyk.s3.eu-west-2.amazonaws.com/Roman_Zhydyk_-_Software_Engineer.pdf'} target={'_blank'} rel="noreferrer" >
+            resume
+          </CustomLink>
+            and
           <CustomLink href={'/works'} target={'_blank'} rel="noreferrer" >
             portfolio
           </CustomLink>
