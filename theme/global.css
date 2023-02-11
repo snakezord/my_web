@@ -48,6 +48,23 @@
   border-radius: 10px;
 }
 
+.image-gallery-bullets-container .image-gallery-bullet.active {
+  background: #ffd700 !important;
+}
+
+.image-gallery-bullets-container .image-gallery-bullet:hover {
+  background: #ffd700 !important;
+  border-color: #ffd700 !important;
+}
+
+.image-gallery-slide-wrapper button:hover {
+  color: #ffd700;
+}
+
+.image-gallery-svg:hover {
+  color: #ffd700;
+}
+
 /* Scroll Down */
 
 .scrolldown-wrapper {
