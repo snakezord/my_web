@@ -136,7 +136,7 @@ const Works = (props: WorksProps) => {
   return (
     <>
       <Seo
-        metaTitle={"Roman Zhydyk's website & blog"}
+        metaTitle={"Roman Zhydyk's portfolio"}
         metaDescription={"Check out his latest work!"}
       />
       <ContentLayout title={"Latest Work"}>
