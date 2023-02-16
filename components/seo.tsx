@@ -10,7 +10,7 @@ const Seo: FC<{
 	{
 		metaTitle,
 		metaDescription,
-		shareImage = "https://www.romanz.online/me_new.jpeg",
+		shareImage = "https://www.romanz.online/me-christmass.png",
 		article
 	}
 ) => {
